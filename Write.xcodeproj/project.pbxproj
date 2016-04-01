@@ -1,0 +1,1598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		400DD87B1C0D5A01000A11CA /* ScrubBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400DD87A1C0D5A01000A11CA /* ScrubBarView.swift */; };
+		400DD87E1C0D5B2B000A11CA /* ScrubBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400DD87D1C0D5B2B000A11CA /* ScrubBarViewController.swift */; };
+		401BD5CD1BD01DFF00CD6DD5 /* LibraryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401BD5CC1BD01DFF00CD6DD5 /* LibraryContentViewController.swift */; };
+		401EE0371BD29DB8001524CB /* DocumentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401EE0361BD29DB8001524CB /* DocumentWindowController.swift */; };
+		4026EE1C1BD456AF00618C5B /* TrafficButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4026EE1B1BD456AF00618C5B /* TrafficButton.swift */; };
+		402821841BF051FF00C943DC /* String+WordCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402821831BF051FF00C943DC /* String+WordCount.swift */; };
+		402821851BF051FF00C943DC /* String+WordCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402821831BF051FF00C943DC /* String+WordCount.swift */; };
+		4037F7F51BDD280100D14344 /* OutlineContentDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037F7F41BDD280100D14344 /* OutlineContentDataController.swift */; };
+		4037F7F71BDD281C00D14344 /* DocumentWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037F7F61BDD281C00D14344 /* DocumentWindowState.swift */; };
+		404635AE1BE85A3D00F9F213 /* WriteNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404635AD1BE85A3D00F9F213 /* WriteNavigationViewController.swift */; };
+		404974671BD13D9E00E27AD1 /* MenuTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404974661BD13D9E00E27AD1 /* MenuTags.swift */; };
+		404990E91BCF30400017EC63 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990E81BCF30400017EC63 /* Paragraph.swift */; };
+		404990EA1BCF30400017EC63 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990E81BCF30400017EC63 /* Paragraph.swift */; };
+		404990EC1BCF30A90017EC63 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990EB1BCF30A90017EC63 /* Section.swift */; };
+		404990ED1BCF30A90017EC63 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990EB1BCF30A90017EC63 /* Section.swift */; };
+		404990EF1BCF311C0017EC63 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990EE1BCF311C0017EC63 /* Chapter.swift */; };
+		404990F01BCF311C0017EC63 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990EE1BCF311C0017EC63 /* Chapter.swift */; };
+		404990F21BCF313D0017EC63 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990F11BCF313D0017EC63 /* Book.swift */; };
+		404990F31BCF313D0017EC63 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404990F11BCF313D0017EC63 /* Book.swift */; };
+		404DE8011C0D566300A7935D /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404DE8001C0D566300A7935D /* TextView.swift */; };
+		406041CC1BD9D9B600DBC919 /* OutlineMetadataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406041CB1BD9D9B600DBC919 /* OutlineMetadataViewController.swift */; };
+		4061F3291BF592340066B68E /* OutlineNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061F3281BF592340066B68E /* OutlineNotesViewController.swift */; };
+		4086A98E1BD5CCA1007F0648 /* PaneContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086A98D1BD5CCA1007F0648 /* PaneContainerView.swift */; };
+		40A8048B1BD5D4DE00B2E17C /* DocumentWindowContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8048A1BD5D4DE00B2E17C /* DocumentWindowContentViewController.swift */; };
+		40A8048E1BD5DA2400B2E17C /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A8048D1BD5DA2400B2E17C /* OutlineViewController.swift */; };
+		40AA969C1BD7D5F5006705B0 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA969B1BD7D5F5006705B0 /* WriteViewController.swift */; };
+		40ACC6691BCFEC9F0092F9AF /* LibraryWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACC6681BCFEC9F0092F9AF /* LibraryWindowController.swift */; };
+		40B0DF2C1BD0B278005C6283 /* Document.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B0DF2B1BD0B278005C6283 /* Document.storyboard */; };
+		40B0DF2E1BD0B44D005C6283 /* LibraryContentDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B0DF2D1BD0B44D005C6283 /* LibraryContentDataController.swift */; };
+		40CA236A1BE87DE900F74248 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA23691BE87DE900F74248 /* Diff.swift */; };
+		40CA236B1BE87DE900F74248 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA23691BE87DE900F74248 /* Diff.swift */; };
+		40CD72791C00DB1500250D2A /* TextMutationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD72781C00DB1500250D2A /* TextMutationController.swift */; };
+		40CEDE681BCE0DF100F85099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDE671BCE0DF100F85099 /* AppDelegate.swift */; };
+		40CEDE6A1BCE0DF100F85099 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDE691BCE0DF100F85099 /* ViewController.swift */; };
+		40CEDE6D1BCE0DF100F85099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CEDE6B1BCE0DF100F85099 /* Main.storyboard */; };
+		40CEDE6F1BCE0DF100F85099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CEDE6E1BCE0DF100F85099 /* Assets.xcassets */; };
+		40CEDE721BCE0DF100F85099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CEDE701BCE0DF100F85099 /* LaunchScreen.storyboard */; };
+		40CEDE7D1BCE0DF100F85099 /* WriteMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDE7C1BCE0DF100F85099 /* WriteMobileTests.swift */; };
+		40CEDE881BCE0DF100F85099 /* WriteMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDE871BCE0DF100F85099 /* WriteMobileUITests.swift */; };
+		40CEDE9B1BCE0E1400F85099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDE9A1BCE0E1400F85099 /* AppDelegate.swift */; };
+		40CEDE9F1BCE0E1400F85099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CEDE9E1BCE0E1400F85099 /* Assets.xcassets */; };
+		40CEDEA21BCE0E1400F85099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CEDEA01BCE0E1400F85099 /* Main.storyboard */; };
+		40CEDEAD1BCE0E1500F85099 /* WriteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDEAC1BCE0E1500F85099 /* WriteMacTests.swift */; };
+		40CEDEB81BCE0E1500F85099 /* WriteMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDEB71BCE0E1500F85099 /* WriteMacUITests.swift */; };
+		40CEDEFA1BCE131500F85099 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDEF61BCE12FD00F85099 /* Realm.framework */; };
+		40CEDEFB1BCE131500F85099 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDEF61BCE12FD00F85099 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40CEDEFC1BCE131500F85099 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDEF71BCE12FD00F85099 /* RealmSwift.framework */; };
+		40CEDEFD1BCE131500F85099 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDEF71BCE12FD00F85099 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40CEDF051BCE137400F85099 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDF011BCE136B00F85099 /* Realm.framework */; };
+		40CEDF061BCE137400F85099 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDF011BCE136B00F85099 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40CEDF071BCE137400F85099 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDF021BCE136B00F85099 /* RealmSwift.framework */; };
+		40CEDF081BCE137400F85099 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40CEDF021BCE136B00F85099 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40CEDF0C1BCE139F00F85099 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDF0B1BCE139F00F85099 /* DataCenter.swift */; };
+		40CEDF0D1BCE139F00F85099 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEDF0B1BCE139F00F85099 /* DataCenter.swift */; };
+		40E320F11BDA7897004FDD58 /* OutlineContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E320F01BDA7897004FDD58 /* OutlineContentViewController.swift */; };
+		40EE4B9E1BD4469200A9DC8A /* TabbedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE4B9D1BD4469200A9DC8A /* TabbedWindow.swift */; };
+		40EE4BA11BD4498B00A9DC8A /* DocumentWindowTitleBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE4BA01BD4498B00A9DC8A /* DocumentWindowTitleBarViewController.swift */; };
+		40EE4BA41BD44A7A00A9DC8A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE4BA31BD44A7A00A9DC8A /* GradientView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40CEDE791BCE0DF100F85099 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40CEDE5A1BCE0DDB00F85099 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40CEDE631BCE0DF100F85099;
+			remoteInfo = WriteMobile;
+		};
+		40CEDE841BCE0DF100F85099 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40CEDE5A1BCE0DDB00F85099 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40CEDE631BCE0DF100F85099;
+			remoteInfo = WriteMobile;
+		};
+		40CEDEA91BCE0E1400F85099 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40CEDE5A1BCE0DDB00F85099 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40CEDE971BCE0E1400F85099;
+			remoteInfo = WriteMac;
+		};
+		40CEDEB41BCE0E1500F85099 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40CEDE5A1BCE0DDB00F85099 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40CEDE971BCE0E1400F85099;
+			remoteInfo = WriteMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		40CEDEE71BCE0F6000F85099 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				40CEDF081BCE137400F85099 /* RealmSwift.framework in Embed Frameworks */,
+				40CEDF061BCE137400F85099 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEFE1BCE131500F85099 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				40CEDEFD1BCE131500F85099 /* RealmSwift.framework in Embed Frameworks */,
+				40CEDEFB1BCE131500F85099 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		400DD87A1C0D5A01000A11CA /* ScrubBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubBarView.swift; sourceTree = "<group>"; };
+		400DD87D1C0D5B2B000A11CA /* ScrubBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubBarViewController.swift; sourceTree = "<group>"; };
+		401BD5CC1BD01DFF00CD6DD5 /* LibraryContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryContentViewController.swift; sourceTree = "<group>"; };
+		401EE0361BD29DB8001524CB /* DocumentWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentWindowController.swift; sourceTree = "<group>"; };
+		4026EE1B1BD456AF00618C5B /* TrafficButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficButton.swift; sourceTree = "<group>"; };
+		402821831BF051FF00C943DC /* String+WordCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WordCount.swift"; sourceTree = "<group>"; };
+		4037F7F41BDD280100D14344 /* OutlineContentDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineContentDataController.swift; sourceTree = "<group>"; };
+		4037F7F61BDD281C00D14344 /* DocumentWindowState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentWindowState.swift; sourceTree = "<group>"; };
+		404635AD1BE85A3D00F9F213 /* WriteNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNavigationViewController.swift; sourceTree = "<group>"; };
+		404974661BD13D9E00E27AD1 /* MenuTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTags.swift; sourceTree = "<group>"; };
+		404990E81BCF30400017EC63 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paragraph.swift; sourceTree = "<group>"; };
+		404990EB1BCF30A90017EC63 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		404990EE1BCF311C0017EC63 /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		404990F11BCF313D0017EC63 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		404DE8001C0D566300A7935D /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		406041CB1BD9D9B600DBC919 /* OutlineMetadataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineMetadataViewController.swift; sourceTree = "<group>"; };
+		4061F3281BF592340066B68E /* OutlineNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineNotesViewController.swift; sourceTree = "<group>"; };
+		4086A98D1BD5CCA1007F0648 /* PaneContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneContainerView.swift; sourceTree = "<group>"; };
+		40A8048A1BD5D4DE00B2E17C /* DocumentWindowContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentWindowContentViewController.swift; sourceTree = "<group>"; };
+		40A8048D1BD5DA2400B2E17C /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
+		40AA969B1BD7D5F5006705B0 /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		40ACC6681BCFEC9F0092F9AF /* LibraryWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
+		40B0DF2B1BD0B278005C6283 /* Document.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Document.storyboard; sourceTree = "<group>"; };
+		40B0DF2D1BD0B44D005C6283 /* LibraryContentDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryContentDataController.swift; sourceTree = "<group>"; };
+		40CA23691BE87DE900F74248 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
+		40CD72781C00DB1500250D2A /* TextMutationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMutationController.swift; sourceTree = "<group>"; };
+		40CEDE641BCE0DF100F85099 /* WriteMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDE671BCE0DF100F85099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		40CEDE691BCE0DF100F85099 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40CEDE6C1BCE0DF100F85099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40CEDE6E1BCE0DF100F85099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40CEDE711BCE0DF100F85099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		40CEDE731BCE0DF100F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDE781BCE0DF100F85099 /* WriteMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDE7C1BCE0DF100F85099 /* WriteMobileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMobileTests.swift; sourceTree = "<group>"; };
+		40CEDE7E1BCE0DF100F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDE831BCE0DF100F85099 /* WriteMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDE871BCE0DF100F85099 /* WriteMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMobileUITests.swift; sourceTree = "<group>"; };
+		40CEDE891BCE0DF100F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDE981BCE0E1400F85099 /* WriteMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDE9A1BCE0E1400F85099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		40CEDE9E1BCE0E1400F85099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40CEDEA11BCE0E1400F85099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40CEDEA31BCE0E1400F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDEA81BCE0E1400F85099 /* WriteMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDEAC1BCE0E1500F85099 /* WriteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMacTests.swift; sourceTree = "<group>"; };
+		40CEDEAE1BCE0E1500F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDEB31BCE0E1500F85099 /* WriteMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40CEDEB71BCE0E1500F85099 /* WriteMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMacUITests.swift; sourceTree = "<group>"; };
+		40CEDEB91BCE0E1500F85099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40CEDEF61BCE12FD00F85099 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		40CEDEF71BCE12FD00F85099 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		40CEDF011BCE136B00F85099 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		40CEDF021BCE136B00F85099 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		40CEDF0B1BCE139F00F85099 /* DataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
+		40E320F01BDA7897004FDD58 /* OutlineContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineContentViewController.swift; sourceTree = "<group>"; };
+		40EE4B9D1BD4469200A9DC8A /* TabbedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedWindow.swift; sourceTree = "<group>"; };
+		40EE4BA01BD4498B00A9DC8A /* DocumentWindowTitleBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentWindowTitleBarViewController.swift; sourceTree = "<group>"; };
+		40EE4BA31BD44A7A00A9DC8A /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40CEDE611BCE0DF100F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDEFC1BCE131500F85099 /* RealmSwift.framework in Frameworks */,
+				40CEDEFA1BCE131500F85099 /* Realm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE751BCE0DF100F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE801BCE0DF100F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE951BCE0E1400F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDF071BCE137400F85099 /* RealmSwift.framework in Frameworks */,
+				40CEDF051BCE137400F85099 /* Realm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEA51BCE0E1400F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEB01BCE0E1500F85099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400DD87C1C0D5B1D000A11CA /* Scrub Bar */ = {
+			isa = PBXGroup;
+			children = (
+				400DD87D1C0D5B2B000A11CA /* ScrubBarViewController.swift */,
+			);
+			name = "Scrub Bar";
+			sourceTree = "<group>";
+		};
+		402821821BF051EE00C943DC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				402821831BF051FF00C943DC /* String+WordCount.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		404990E11BCF2EEA0017EC63 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE9A1BCE0E1400F85099 /* AppDelegate.swift */,
+				404974661BD13D9E00E27AD1 /* MenuTags.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		404990E21BCF2EFC0017EC63 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				40ACC6661BCFEC330092F9AF /* Library Window */,
+				40ACC6671BCFEC370092F9AF /* Document Window */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		404990E31BCF2F4A0017EC63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE9E1BCE0E1400F85099 /* Assets.xcassets */,
+				40CEDEA01BCE0E1400F85099 /* Main.storyboard */,
+				40B0DF2B1BD0B278005C6283 /* Document.storyboard */,
+				40CEDEA31BCE0E1400F85099 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		404990E41BCF2F590017EC63 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE671BCE0DF100F85099 /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		404990E51BCF2F6B0017EC63 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE691BCE0DF100F85099 /* ViewController.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		404990E61BCF2F7C0017EC63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE6B1BCE0DF100F85099 /* Main.storyboard */,
+				40CEDE6E1BCE0DF100F85099 /* Assets.xcassets */,
+				40CEDE701BCE0DF100F85099 /* LaunchScreen.storyboard */,
+				40CEDE731BCE0DF100F85099 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		404990E71BCF30250017EC63 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				404990F11BCF313D0017EC63 /* Book.swift */,
+				404990EE1BCF311C0017EC63 /* Chapter.swift */,
+				404990EB1BCF30A90017EC63 /* Section.swift */,
+				404990E81BCF30400017EC63 /* Paragraph.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		40A8048C1BD5DA0C00B2E17C /* Outline */ = {
+			isa = PBXGroup;
+			children = (
+				40A8048D1BD5DA2400B2E17C /* OutlineViewController.swift */,
+				406041CB1BD9D9B600DBC919 /* OutlineMetadataViewController.swift */,
+				40E320F01BDA7897004FDD58 /* OutlineContentViewController.swift */,
+				4037F7F41BDD280100D14344 /* OutlineContentDataController.swift */,
+			);
+			name = Outline;
+			sourceTree = "<group>";
+		};
+		40AA969A1BD7D5E6006705B0 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				40AA969B1BD7D5F5006705B0 /* WriteViewController.swift */,
+				404635AD1BE85A3D00F9F213 /* WriteNavigationViewController.swift */,
+			);
+			name = Write;
+			sourceTree = "<group>";
+		};
+		40ACC6661BCFEC330092F9AF /* Library Window */ = {
+			isa = PBXGroup;
+			children = (
+				40ACC6681BCFEC9F0092F9AF /* LibraryWindowController.swift */,
+				401BD5CC1BD01DFF00CD6DD5 /* LibraryContentViewController.swift */,
+				40B0DF2D1BD0B44D005C6283 /* LibraryContentDataController.swift */,
+			);
+			name = "Library Window";
+			sourceTree = "<group>";
+		};
+		40ACC6671BCFEC370092F9AF /* Document Window */ = {
+			isa = PBXGroup;
+			children = (
+				40EE4B9F1BD4497C00A9DC8A /* Title Bar */,
+				400DD87C1C0D5B1D000A11CA /* Scrub Bar */,
+				40A8048C1BD5DA0C00B2E17C /* Outline */,
+				40AA969A1BD7D5E6006705B0 /* Write */,
+				40D953CC1BF58A2400E20C76 /* Outline Notes */,
+				40CD72781C00DB1500250D2A /* TextMutationController.swift */,
+				40A8048A1BD5D4DE00B2E17C /* DocumentWindowContentViewController.swift */,
+				401EE0361BD29DB8001524CB /* DocumentWindowController.swift */,
+				4037F7F61BDD281C00D14344 /* DocumentWindowState.swift */,
+			);
+			name = "Document Window";
+			sourceTree = "<group>";
+		};
+		40CA23681BE87DD800F74248 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				40CA23691BE87DE900F74248 /* Diff.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		40CEDE591BCE0DDB00F85099 = {
+			isa = PBXGroup;
+			children = (
+				40CEDE931BCE0DF700F85099 /* Mobile */,
+				40CEDEC31BCE0E1800F85099 /* Mac */,
+				40CEDEE01BCE0E4200F85099 /* Common */,
+				40CEDE651BCE0DF100F85099 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40CEDE651BCE0DF100F85099 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE641BCE0DF100F85099 /* WriteMobile.app */,
+				40CEDE781BCE0DF100F85099 /* WriteMobileTests.xctest */,
+				40CEDE831BCE0DF100F85099 /* WriteMobileUITests.xctest */,
+				40CEDE981BCE0E1400F85099 /* WriteMac.app */,
+				40CEDEA81BCE0E1400F85099 /* WriteMacTests.xctest */,
+				40CEDEB31BCE0E1500F85099 /* WriteMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40CEDE661BCE0DF100F85099 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				404990E41BCF2F590017EC63 /* Application */,
+				404990E51BCF2F6B0017EC63 /* Interface */,
+				404990E61BCF2F7C0017EC63 /* Supporting Files */,
+			);
+			name = Source;
+			path = WriteMobile;
+			sourceTree = "<group>";
+		};
+		40CEDE7B1BCE0DF100F85099 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE7C1BCE0DF100F85099 /* WriteMobileTests.swift */,
+				40CEDE7E1BCE0DF100F85099 /* Info.plist */,
+			);
+			name = Tests;
+			path = WriteMobileTests;
+			sourceTree = "<group>";
+		};
+		40CEDE861BCE0DF100F85099 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE871BCE0DF100F85099 /* WriteMobileUITests.swift */,
+				40CEDE891BCE0DF100F85099 /* Info.plist */,
+			);
+			name = UITests;
+			path = WriteMobileUITests;
+			sourceTree = "<group>";
+		};
+		40CEDE931BCE0DF700F85099 /* Mobile */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE661BCE0DF100F85099 /* Source */,
+				40CEDE7B1BCE0DF100F85099 /* Tests */,
+				40CEDE861BCE0DF100F85099 /* UITests */,
+				40CEDEF51BCE12D600F85099 /* Frameworks */,
+			);
+			name = Mobile;
+			sourceTree = "<group>";
+		};
+		40CEDE991BCE0E1400F85099 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				404990E11BCF2EEA0017EC63 /* Application */,
+				404990E21BCF2EFC0017EC63 /* Interface */,
+				40EE4B9C1BD4466500A9DC8A /* Windows */,
+				40EE4BA21BD44A6E00A9DC8A /* Views */,
+				404990E31BCF2F4A0017EC63 /* Supporting Files */,
+			);
+			name = Source;
+			path = WriteMac;
+			sourceTree = "<group>";
+		};
+		40CEDEAB1BCE0E1400F85099 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDEAC1BCE0E1500F85099 /* WriteMacTests.swift */,
+				40CEDEAE1BCE0E1500F85099 /* Info.plist */,
+			);
+			name = Tests;
+			path = WriteMacTests;
+			sourceTree = "<group>";
+		};
+		40CEDEB61BCE0E1500F85099 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDEB71BCE0E1500F85099 /* WriteMacUITests.swift */,
+				40CEDEB91BCE0E1500F85099 /* Info.plist */,
+			);
+			name = UITests;
+			path = WriteMacUITests;
+			sourceTree = "<group>";
+		};
+		40CEDEC31BCE0E1800F85099 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDE991BCE0E1400F85099 /* Source */,
+				40CEDEAB1BCE0E1400F85099 /* Tests */,
+				40CEDEB61BCE0E1500F85099 /* UITests */,
+				40CEDF001BCE134100F85099 /* Frameworks */,
+			);
+			name = Mac;
+			sourceTree = "<group>";
+		};
+		40CEDECA1BCE0E3E00F85099 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDF091BCE138500F85099 /* Centers */,
+				404990E71BCF30250017EC63 /* Data */,
+				40CA23681BE87DD800F74248 /* Utilities */,
+				402821821BF051EE00C943DC /* Extensions */,
+			);
+			name = Source;
+			path = WriteCommon;
+			sourceTree = "<group>";
+		};
+		40CEDEE01BCE0E4200F85099 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDECA1BCE0E3E00F85099 /* Source */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		40CEDEF51BCE12D600F85099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDEF61BCE12FD00F85099 /* Realm.framework */,
+				40CEDEF71BCE12FD00F85099 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			path = WriteMobileFrameworks;
+			sourceTree = "<group>";
+		};
+		40CEDF001BCE134100F85099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDF011BCE136B00F85099 /* Realm.framework */,
+				40CEDF021BCE136B00F85099 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			path = WriteMacFrameworks;
+			sourceTree = "<group>";
+		};
+		40CEDF091BCE138500F85099 /* Centers */ = {
+			isa = PBXGroup;
+			children = (
+				40CEDF0B1BCE139F00F85099 /* DataCenter.swift */,
+			);
+			name = Centers;
+			sourceTree = "<group>";
+		};
+		40D953CC1BF58A2400E20C76 /* Outline Notes */ = {
+			isa = PBXGroup;
+			children = (
+				4061F3281BF592340066B68E /* OutlineNotesViewController.swift */,
+			);
+			name = "Outline Notes";
+			sourceTree = "<group>";
+		};
+		40EE4B9C1BD4466500A9DC8A /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				40EE4B9D1BD4469200A9DC8A /* TabbedWindow.swift */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		40EE4B9F1BD4497C00A9DC8A /* Title Bar */ = {
+			isa = PBXGroup;
+			children = (
+				40EE4BA01BD4498B00A9DC8A /* DocumentWindowTitleBarViewController.swift */,
+			);
+			name = "Title Bar";
+			sourceTree = "<group>";
+		};
+		40EE4BA21BD44A6E00A9DC8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				404DE8001C0D566300A7935D /* TextView.swift */,
+				40EE4BA31BD44A7A00A9DC8A /* GradientView.swift */,
+				4026EE1B1BD456AF00618C5B /* TrafficButton.swift */,
+				4086A98D1BD5CCA1007F0648 /* PaneContainerView.swift */,
+				400DD87A1C0D5A01000A11CA /* ScrubBarView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40CEDE631BCE0DF100F85099 /* WriteMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDE8A1BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobile" */;
+			buildPhases = (
+				40CEDE601BCE0DF100F85099 /* Sources */,
+				40CEDE611BCE0DF100F85099 /* Frameworks */,
+				40CEDE621BCE0DF100F85099 /* Resources */,
+				40CEDEFE1BCE131500F85099 /* Embed Frameworks */,
+				40CEDEFF1BCE132400F85099 /* Fix Realm Embed */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WriteMobile;
+			productName = WriteMobile;
+			productReference = 40CEDE641BCE0DF100F85099 /* WriteMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40CEDE771BCE0DF100F85099 /* WriteMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDE8D1BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobileTests" */;
+			buildPhases = (
+				40CEDE741BCE0DF100F85099 /* Sources */,
+				40CEDE751BCE0DF100F85099 /* Frameworks */,
+				40CEDE761BCE0DF100F85099 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40CEDE7A1BCE0DF100F85099 /* PBXTargetDependency */,
+			);
+			name = WriteMobileTests;
+			productName = WriteMobileTests;
+			productReference = 40CEDE781BCE0DF100F85099 /* WriteMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40CEDE821BCE0DF100F85099 /* WriteMobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDE901BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobileUITests" */;
+			buildPhases = (
+				40CEDE7F1BCE0DF100F85099 /* Sources */,
+				40CEDE801BCE0DF100F85099 /* Frameworks */,
+				40CEDE811BCE0DF100F85099 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40CEDE851BCE0DF100F85099 /* PBXTargetDependency */,
+			);
+			name = WriteMobileUITests;
+			productName = WriteMobileUITests;
+			productReference = 40CEDE831BCE0DF100F85099 /* WriteMobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		40CEDE971BCE0E1400F85099 /* WriteMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDEBA1BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMac" */;
+			buildPhases = (
+				40CEDE941BCE0E1400F85099 /* Sources */,
+				40CEDE951BCE0E1400F85099 /* Frameworks */,
+				40CEDE961BCE0E1400F85099 /* Resources */,
+				40CEDEE71BCE0F6000F85099 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WriteMac;
+			productName = WriteMac;
+			productReference = 40CEDE981BCE0E1400F85099 /* WriteMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40CEDEA71BCE0E1400F85099 /* WriteMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDEBD1BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMacTests" */;
+			buildPhases = (
+				40CEDEA41BCE0E1400F85099 /* Sources */,
+				40CEDEA51BCE0E1400F85099 /* Frameworks */,
+				40CEDEA61BCE0E1400F85099 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40CEDEAA1BCE0E1400F85099 /* PBXTargetDependency */,
+			);
+			name = WriteMacTests;
+			productName = WriteMacTests;
+			productReference = 40CEDEA81BCE0E1400F85099 /* WriteMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40CEDEB21BCE0E1500F85099 /* WriteMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40CEDEC01BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMacUITests" */;
+			buildPhases = (
+				40CEDEAF1BCE0E1500F85099 /* Sources */,
+				40CEDEB01BCE0E1500F85099 /* Frameworks */,
+				40CEDEB11BCE0E1500F85099 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40CEDEB51BCE0E1500F85099 /* PBXTargetDependency */,
+			);
+			name = WriteMacUITests;
+			productName = WriteMacUITests;
+			productReference = 40CEDEB31BCE0E1500F85099 /* WriteMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40CEDE5A1BCE0DDB00F85099 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					40CEDE631BCE0DF100F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					40CEDE771BCE0DF100F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 40CEDE631BCE0DF100F85099;
+					};
+					40CEDE821BCE0DF100F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 40CEDE631BCE0DF100F85099;
+					};
+					40CEDE971BCE0E1400F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					40CEDEA71BCE0E1400F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 40CEDE971BCE0E1400F85099;
+					};
+					40CEDEB21BCE0E1500F85099 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 40CEDE971BCE0E1400F85099;
+					};
+				};
+			};
+			buildConfigurationList = 40CEDE5D1BCE0DDB00F85099 /* Build configuration list for PBXProject "Write" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40CEDE591BCE0DDB00F85099;
+			productRefGroup = 40CEDE651BCE0DF100F85099 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40CEDE631BCE0DF100F85099 /* WriteMobile */,
+				40CEDE771BCE0DF100F85099 /* WriteMobileTests */,
+				40CEDE821BCE0DF100F85099 /* WriteMobileUITests */,
+				40CEDE971BCE0E1400F85099 /* WriteMac */,
+				40CEDEA71BCE0E1400F85099 /* WriteMacTests */,
+				40CEDEB21BCE0E1500F85099 /* WriteMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40CEDE621BCE0DF100F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDE721BCE0DF100F85099 /* LaunchScreen.storyboard in Resources */,
+				40CEDE6F1BCE0DF100F85099 /* Assets.xcassets in Resources */,
+				40CEDE6D1BCE0DF100F85099 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE761BCE0DF100F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE811BCE0DF100F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE961BCE0E1400F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40B0DF2C1BD0B278005C6283 /* Document.storyboard in Resources */,
+				40CEDE9F1BCE0E1400F85099 /* Assets.xcassets in Resources */,
+				40CEDEA21BCE0E1400F85099 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEA61BCE0E1400F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEB11BCE0E1500F85099 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40CEDEFF1BCE132400F85099 /* Fix Realm Embed */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fix Realm Embed";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40CEDE601BCE0DF100F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404990EC1BCF30A90017EC63 /* Section.swift in Sources */,
+				404990E91BCF30400017EC63 /* Paragraph.swift in Sources */,
+				404990F21BCF313D0017EC63 /* Book.swift in Sources */,
+				40CEDF0C1BCE139F00F85099 /* DataCenter.swift in Sources */,
+				402821841BF051FF00C943DC /* String+WordCount.swift in Sources */,
+				404990EF1BCF311C0017EC63 /* Chapter.swift in Sources */,
+				40CEDE6A1BCE0DF100F85099 /* ViewController.swift in Sources */,
+				40CA236A1BE87DE900F74248 /* Diff.swift in Sources */,
+				40CEDE681BCE0DF100F85099 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE741BCE0DF100F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDE7D1BCE0DF100F85099 /* WriteMobileTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE7F1BCE0DF100F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDE881BCE0DF100F85099 /* WriteMobileUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDE941BCE0E1400F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				404635AE1BE85A3D00F9F213 /* WriteNavigationViewController.swift in Sources */,
+				40CA236B1BE87DE900F74248 /* Diff.swift in Sources */,
+				400DD87B1C0D5A01000A11CA /* ScrubBarView.swift in Sources */,
+				402821851BF051FF00C943DC /* String+WordCount.swift in Sources */,
+				4037F7F51BDD280100D14344 /* OutlineContentDataController.swift in Sources */,
+				4037F7F71BDD281C00D14344 /* DocumentWindowState.swift in Sources */,
+				404990ED1BCF30A90017EC63 /* Section.swift in Sources */,
+				4061F3291BF592340066B68E /* OutlineNotesViewController.swift in Sources */,
+				40AA969C1BD7D5F5006705B0 /* WriteViewController.swift in Sources */,
+				40E320F11BDA7897004FDD58 /* OutlineContentViewController.swift in Sources */,
+				40A8048E1BD5DA2400B2E17C /* OutlineViewController.swift in Sources */,
+				404974671BD13D9E00E27AD1 /* MenuTags.swift in Sources */,
+				4026EE1C1BD456AF00618C5B /* TrafficButton.swift in Sources */,
+				401EE0371BD29DB8001524CB /* DocumentWindowController.swift in Sources */,
+				4086A98E1BD5CCA1007F0648 /* PaneContainerView.swift in Sources */,
+				40ACC6691BCFEC9F0092F9AF /* LibraryWindowController.swift in Sources */,
+				40EE4BA41BD44A7A00A9DC8A /* GradientView.swift in Sources */,
+				404990EA1BCF30400017EC63 /* Paragraph.swift in Sources */,
+				401BD5CD1BD01DFF00CD6DD5 /* LibraryContentViewController.swift in Sources */,
+				40EE4BA11BD4498B00A9DC8A /* DocumentWindowTitleBarViewController.swift in Sources */,
+				404DE8011C0D566300A7935D /* TextView.swift in Sources */,
+				404990F31BCF313D0017EC63 /* Book.swift in Sources */,
+				400DD87E1C0D5B2B000A11CA /* ScrubBarViewController.swift in Sources */,
+				40B0DF2E1BD0B44D005C6283 /* LibraryContentDataController.swift in Sources */,
+				406041CC1BD9D9B600DBC919 /* OutlineMetadataViewController.swift in Sources */,
+				40CEDF0D1BCE139F00F85099 /* DataCenter.swift in Sources */,
+				40A8048B1BD5D4DE00B2E17C /* DocumentWindowContentViewController.swift in Sources */,
+				404990F01BCF311C0017EC63 /* Chapter.swift in Sources */,
+				40CD72791C00DB1500250D2A /* TextMutationController.swift in Sources */,
+				40CEDE9B1BCE0E1400F85099 /* AppDelegate.swift in Sources */,
+				40EE4B9E1BD4469200A9DC8A /* TabbedWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEA41BCE0E1400F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDEAD1BCE0E1500F85099 /* WriteMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40CEDEAF1BCE0E1500F85099 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CEDEB81BCE0E1500F85099 /* WriteMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40CEDE7A1BCE0DF100F85099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40CEDE631BCE0DF100F85099 /* WriteMobile */;
+			targetProxy = 40CEDE791BCE0DF100F85099 /* PBXContainerItemProxy */;
+		};
+		40CEDE851BCE0DF100F85099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40CEDE631BCE0DF100F85099 /* WriteMobile */;
+			targetProxy = 40CEDE841BCE0DF100F85099 /* PBXContainerItemProxy */;
+		};
+		40CEDEAA1BCE0E1400F85099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40CEDE971BCE0E1400F85099 /* WriteMac */;
+			targetProxy = 40CEDEA91BCE0E1400F85099 /* PBXContainerItemProxy */;
+		};
+		40CEDEB51BCE0E1500F85099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40CEDE971BCE0E1400F85099 /* WriteMac */;
+			targetProxy = 40CEDEB41BCE0E1500F85099 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		40CEDE6B1BCE0DF100F85099 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40CEDE6C1BCE0DF100F85099 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		40CEDE701BCE0DF100F85099 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40CEDE711BCE0DF100F85099 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		40CEDEA01BCE0E1400F85099 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40CEDEA11BCE0E1400F85099 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		40CEDE5E1BCE0DDB00F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		40CEDE5F1BCE0DDB00F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		40CEDE8B1BCE0DF100F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WriteMobileFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40CEDE8C1BCE0DF100F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WriteMobileFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40CEDE8E1BCE0DF100F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobileTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WriteMobile.app/WriteMobile";
+			};
+			name = Debug;
+		};
+		40CEDE8F1BCE0DF100F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobileTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WriteMobile.app/WriteMobile";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40CEDE911BCE0DF100F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobileUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_TARGET_NAME = WriteMobile;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		40CEDE921BCE0DF100F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMobileUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_TARGET_NAME = WriteMobile;
+				USES_XCTRUNNER = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40CEDEBB1BCE0E1500F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WriteMacFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40CEDEBC1BCE0E1500F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WriteMacFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40CEDEBE1BCE0E1500F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WriteMac.app/Contents/MacOS/WriteMac";
+			};
+			name = Debug;
+		};
+		40CEDEBF1BCE0E1500F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WriteMac.app/Contents/MacOS/WriteMac";
+			};
+			name = Release;
+		};
+		40CEDEC11BCE0E1500F85099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = WriteMac;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		40CEDEC21BCE0E1500F85099 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WriteMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhays.WriteMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = WriteMac;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40CEDE5D1BCE0DDB00F85099 /* Build configuration list for PBXProject "Write" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDE5E1BCE0DDB00F85099 /* Debug */,
+				40CEDE5F1BCE0DDB00F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDE8A1BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDE8B1BCE0DF100F85099 /* Debug */,
+				40CEDE8C1BCE0DF100F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDE8D1BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDE8E1BCE0DF100F85099 /* Debug */,
+				40CEDE8F1BCE0DF100F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDE901BCE0DF100F85099 /* Build configuration list for PBXNativeTarget "WriteMobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDE911BCE0DF100F85099 /* Debug */,
+				40CEDE921BCE0DF100F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDEBA1BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDEBB1BCE0E1500F85099 /* Debug */,
+				40CEDEBC1BCE0E1500F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDEBD1BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDEBE1BCE0E1500F85099 /* Debug */,
+				40CEDEBF1BCE0E1500F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40CEDEC01BCE0E1500F85099 /* Build configuration list for PBXNativeTarget "WriteMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40CEDEC11BCE0E1500F85099 /* Debug */,
+				40CEDEC21BCE0E1500F85099 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40CEDE5A1BCE0DDB00F85099 /* Project object */;
+}

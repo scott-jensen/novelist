@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>WriteMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>WriteMobile.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>40CEDE631BCE0DF100F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDE771BCE0DF100F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDE821BCE0DF100F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDE971BCE0E1400F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDEA71BCE0E1400F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDEB21BCE0E1500F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDEC81BCE0E3E00F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40CEDED11BCE0E3E00F85099</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
