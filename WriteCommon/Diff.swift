@@ -11,17 +11,17 @@ import Foundation
 /// Describes a mutation to apply to a collection of T.
 public enum DiffMutation<T> {
     /// Keep an existing value.
-    case Keep
+    case keep
     
     /// Delete an existing value.
-    case Delete
+    case delete
     
     /// Insert a new value.
-    case Insert(value: T)
+    case insert(value: T)
 }
 
-private func longestCommonSubsequenceTable<T where T: Equatable>(a: [T], _ b: [T]) -> [[Int]] {
-    var table = [[Int]](count: a.count + 1, repeatedValue: [Int](count: b.count + 1, repeatedValue: 0))
+private func longestCommonSubsequenceTable<T>(_ a: [T], _ b: [T]) -> [[Int]] where T: Equatable {
+    var table = [[Int]](repeating: [Int](repeating: 0, count: b.count + 1), count: a.count + 1)
     
     for i in 1 ..< a.count + 1 {
         for j in 1 ..< b.count + 1 {
@@ -36,13 +36,13 @@ private func longestCommonSubsequenceTable<T where T: Equatable>(a: [T], _ b: [T
     return table
 }
 
-private func diffBacktrack<T where T: Equatable>(table table: [[Int]], a: [T], b: [T], i: Int, j: Int) -> [DiffMutation<T>] {
+private func diffBacktrack<T>(_ table: [[Int]], a: [T], b: [T], i: Int, j: Int) -> [DiffMutation<T>] where T: Equatable {
     if i > 0 && j > 0 && a[i - 1] == b[j - 1] {
-        return diffBacktrack(table: table, a: a, b: b, i: i - 1, j: j - 1) + [.Keep]
+        return diffBacktrack(table, a: a, b: b, i: i - 1, j: j - 1) + [.keep]
     } else if j > 0 && (i == 0 || table[i][j - 1] >= table[i - 1][j]) {
-        return diffBacktrack(table: table, a: a, b: b, i: i, j: j - 1) + [.Insert(value: b[j - 1])]
+        return diffBacktrack(table, a: a, b: b, i: i, j: j - 1) + [.insert(value: b[j - 1])]
     } else if i > 0 && (j == 0 || table[i][j - 1] < table[i - 1][j]) {
-        return diffBacktrack(table: table, a: a, b: b, i: i - 1, j: j) + [.Delete]
+        return diffBacktrack(table, a: a, b: b, i: i - 1, j: j) + [.delete]
     } else {
         return []
     }
@@ -51,21 +51,22 @@ private func diffBacktrack<T where T: Equatable>(table table: [[Int]], a: [T], b
 /// Computes the difference between two arrays, and returns a list of mutations
 /// that can by applied to the source list to change it into the destination
 /// list.
-public func diff<T where T: Equatable>(var source source: [T], var destination: [T]) -> [DiffMutation<T>] {
+public func diff<T>(source: [T], destination: [T]) -> [DiffMutation<T>] where T: Equatable {
+    var source = source, destination = destination
     var head = [DiffMutation<T>]()
-    while let sourceFirst = source.first, destinationFirst = destination.first where sourceFirst == destinationFirst {
-        head.append(.Keep)
+    while let sourceFirst = source.first, let destinationFirst = destination.first , sourceFirst == destinationFirst {
+        head.append(.keep)
         source.removeFirst()
         destination.removeFirst()
     }
     
     var tail = [DiffMutation<T>]()
-    while let sourceLast = source.last, destinationLast = destination.last where sourceLast == destinationLast {
-        tail.append(.Keep)
+    while let sourceLast = source.last, let destinationLast = destination.last , sourceLast == destinationLast {
+        tail.append(.keep)
         source.removeLast()
         destination.removeLast()
     }
     
     let table = longestCommonSubsequenceTable(source, destination)
-    return head + diffBacktrack(table: table, a: source, b: destination, i: source.count, j: destination.count) + tail
+    return head + diffBacktrack(table, a: source, b: destination, i: source.count, j: destination.count) + tail
 }

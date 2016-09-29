@@ -11,7 +11,7 @@ import Cocoa
 final class ScrubBarViewController: NSViewController {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private dynamic var scrubBarView: ScrubBarView? {
+    @IBOutlet fileprivate dynamic var scrubBarView: ScrubBarView? {
         didSet {
             scrubBarView?.state = state
             scrubBarView?.book = book

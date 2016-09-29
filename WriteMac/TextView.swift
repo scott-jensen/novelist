@@ -10,12 +10,12 @@ import Cocoa
 
 final class TextView: NSTextView {
     override var intrinsicContentSize: NSSize {
-        guard let textContainer = textContainer, layoutManager = layoutManager else {
+        guard let textContainer = textContainer, let layoutManager = layoutManager else {
             return NSSize(width: 32, height: 32)
         }
         
-        layoutManager.ensureLayoutForTextContainer(textContainer)
-        return layoutManager.usedRectForTextContainer(textContainer).size
+        layoutManager.ensureLayout(for: textContainer)
+        return layoutManager.usedRect(for: textContainer).size
     }
     
     // MARK: -

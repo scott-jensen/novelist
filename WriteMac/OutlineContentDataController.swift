@@ -9,8 +9,8 @@
 import Cocoa
 
 enum OutlineTableRowType {
-    case Chapter
-    case Section
+    case chapter
+    case section
 }
 
 struct OutlineTableRepresentation {
@@ -22,7 +22,7 @@ struct OutlineTableRepresentation {
 final class OutlineContentDataController: NSObject {
     // MARK: -
     // MARK: Private Properties
-    private let book: Book
+    fileprivate let book: Book
     
     // MARK: -
     // MARK: Internal Properties
@@ -43,21 +43,21 @@ final class OutlineContentDataController: NSObject {
     
     // MARK: -
     // MARK: Internal API
-    internal func newChapter(selection: BookIndexPath) throws {
+    internal func newChapter(_ selection: BookIndexPath) throws {
         let chapter = Chapter()
         chapter.owner = self.book
         
         try DataCenter.sharedCenter.realm.write {
             if let selectedChapterIndex = selection.chapter {
                 let insertionIndex = selectedChapterIndex + 1
-                self.book.chapters.insert(chapter, atIndex: insertionIndex)
+                self.book.chapters.insert(chapter, at: insertionIndex)
             } else {
                 self.book.chapters.append(chapter)
             }
         }
     }
     
-    internal func newSection(selection: BookIndexPath) throws {
+    internal func newSection(_ selection: BookIndexPath) throws {
         guard let chapterIndex = selection.chapter else {
             NSBeep()
             return
@@ -70,14 +70,14 @@ final class OutlineContentDataController: NSObject {
         try DataCenter.sharedCenter.realm.write {
             if let selectedSectionIndex = selection.section {
                 let insertionIndex = selectedSectionIndex + 1
-                chapter.sections.insert(section, atIndex: insertionIndex)
+                chapter.sections.insert(section, at: insertionIndex)
             } else {
                 chapter.sections.append(section)
             }
         }
     }
     
-    internal func deleteItem(selection: BookIndexPath, updateSelectionInState state: DocumentWindowState) throws {
+    internal func deleteItem(_ selection: BookIndexPath, updateSelectionInState state: DocumentWindowState) throws {
         guard let chapterIndex = selection.chapter else {
             NSBeep()
             return
@@ -96,7 +96,7 @@ final class OutlineContentDataController: NSObject {
             
             try section.cascadeDeleteChildren()
             try DataCenter.sharedCenter.realm.write {
-                chapter.sections.removeAtIndex(sectionIndex)
+                chapter.sections.remove(objectAtIndex: sectionIndex)
                 DataCenter.sharedCenter.realm.delete(section)
                 chapter.updateWordCount()
             }
@@ -109,25 +109,25 @@ final class OutlineContentDataController: NSObject {
             
             try chapter.cascadeDeleteChildren()
             try DataCenter.sharedCenter.realm.write {
-                self.book.chapters.removeAtIndex(chapterIndex)
+                self.book.chapters.remove(objectAtIndex: chapterIndex)
                 DataCenter.sharedCenter.realm.delete(chapter)
                 self.book.updateWordCount()
             }
         }
     }
     
-    internal func tableRepresentation(index: Int) -> OutlineTableRepresentation {
+    internal func tableRepresentation(_ index: Int) -> OutlineTableRepresentation {
         var currentIndex = index
-        for (chapterIndex, chapter) in book.chapters.enumerate() {
+        for (chapterIndex, chapter) in book.chapters.enumerated() {
             if currentIndex == 0 {
-                return OutlineTableRepresentation(indexPath: BookIndexPath(chapter: chapterIndex), rowType: .Chapter, title: chapter.title)
+                return OutlineTableRepresentation(indexPath: BookIndexPath(chapter: chapterIndex), rowType: .chapter, title: chapter.title)
             }
             
             currentIndex -= 1
             
             if currentIndex < chapter.sections.count {
                 let section = chapter.sections[currentIndex]
-                return OutlineTableRepresentation(indexPath: BookIndexPath(chapter: chapterIndex, section: currentIndex), rowType: .Section, title: section.title)
+                return OutlineTableRepresentation(indexPath: BookIndexPath(chapter: chapterIndex, section: currentIndex), rowType: .section, title: section.title)
             }
             
             currentIndex -= chapter.sections.count
@@ -136,13 +136,13 @@ final class OutlineContentDataController: NSObject {
         fatalError("Index Out of Bounds")
     }
     
-    internal func tableRowForIndexPath(indexPath: BookIndexPath) -> Int? {
+    internal func tableRowForIndexPath(_ indexPath: BookIndexPath) -> Int? {
         guard let indexPathChapter = indexPath.chapter else {
             return nil
         }
         
         var row = 0
-        for (chapterIndex, chapter) in book.chapters.enumerate() {
+        for (chapterIndex, chapter) in book.chapters.enumerated() {
             if chapterIndex == indexPathChapter {
                 if let indexPathSection = indexPath.section {
                     assert(indexPathSection < chapter.sections.count)

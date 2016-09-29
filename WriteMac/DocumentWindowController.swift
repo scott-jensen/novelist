@@ -11,15 +11,15 @@ import Cocoa
 final class DocumentWindowController: NSWindowController {
     // MARK: -
     // MARK: Private API
-    private let state = DocumentWindowState()
+    fileprivate let state = DocumentWindowState()
     
-    private var book: Book? {
+    fileprivate var book: Book? {
         didSet {
             documentContentViewController.book = book
         }
     }
     
-    private var documentContentViewController: DocumentWindowContentViewController {
+    fileprivate var documentContentViewController: DocumentWindowContentViewController {
         get {
             return contentViewController as! DocumentWindowContentViewController
         }
@@ -27,7 +27,7 @@ final class DocumentWindowController: NSWindowController {
     
     // MARK: -
     // MARK: Internal Static API
-    internal static func makeWithBook(book: Book) -> DocumentWindowController {
+    internal static func makeWithBook(_ book: Book) -> DocumentWindowController {
         let storyboard = NSStoryboard(name: "Document", bundle: nil)
         
         let controller = storyboard.instantiateInitialController() as! DocumentWindowController

@@ -12,15 +12,15 @@ import RealmSwift
 final class OutlineMetadataViewController: NSViewController {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private var titleTextField: NSTextField?
-    @IBOutlet private var authorTextField: NSTextField?
-    @IBOutlet private var wordCountTextField: NSTextField?
-    private var notificationToken: NotificationToken?
+    @IBOutlet fileprivate var titleTextField: NSTextField?
+    @IBOutlet fileprivate var authorTextField: NSTextField?
+    @IBOutlet fileprivate var wordCountTextField: NSTextField?
+    fileprivate var notificationToken: NotificationToken?
     
-    private lazy var wordCountFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
+    fileprivate lazy var wordCountFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
         
-        formatter.numberStyle = .DecimalStyle
+        formatter.numberStyle = .decimal
         
         return formatter
     }()
@@ -35,7 +35,7 @@ final class OutlineMetadataViewController: NSViewController {
     
     // MARK: -
     // MARK: Observing
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         print(keyPath)
     }
     
@@ -58,15 +58,13 @@ final class OutlineMetadataViewController: NSViewController {
     override func viewDidDisappear() {
         super.viewDidDisappear()
         
-        if let notificationToken = notificationToken {
-            DataCenter.sharedCenter.realm.removeNotification(notificationToken)
-        }
+        notificationToken?.stop()
     }
     
     // MARK: -
     // MARK: Actions
-    @IBAction private dynamic func changeTitle(sender: NSTextField) {
-        guard let baseTitle = titleTextField?.stringValue, book = book else {
+    @IBAction fileprivate dynamic func changeTitle(_ sender: NSTextField) {
+        guard let baseTitle = titleTextField?.stringValue, let book = book else {
             NSBeep()
             return
         }
@@ -83,8 +81,8 @@ final class OutlineMetadataViewController: NSViewController {
         }
     }
     
-    @IBAction private dynamic func changeAuthor(sender: NSTextField) {
-        guard let baseAuthor = authorTextField?.stringValue, book = book else {
+    @IBAction fileprivate dynamic func changeAuthor(_ sender: NSTextField) {
+        guard let baseAuthor = authorTextField?.stringValue, let book = book else {
             NSBeep()
             return
         }
@@ -103,23 +101,23 @@ final class OutlineMetadataViewController: NSViewController {
     
     // MARK: -
     // MARK: Private API
-    private func reloadData() {
+    fileprivate func reloadData() {
         reloadTitleTextField()
         reloadAuthorTextField()
         reloadWordCount()
     }
     
-    private func reloadTitleTextField() {
+    fileprivate func reloadTitleTextField() {
         titleTextField?.stringValue = book?.title ?? ""
     }
     
-    private func reloadAuthorTextField() {
+    fileprivate func reloadAuthorTextField() {
         authorTextField?.stringValue = book?.author ?? ""
     }
     
-    private func reloadWordCount() {
+    fileprivate func reloadWordCount() {
         if let wordCount = book?.wordCount {
-            wordCountTextField?.stringValue = wordCountFormatter.stringFromNumber(wordCount) ?? ""
+            wordCountTextField?.stringValue = wordCountFormatter.string(from: NSNumber(value: wordCount)) ?? ""
         } else {
             wordCountTextField?.stringValue = ""
         }

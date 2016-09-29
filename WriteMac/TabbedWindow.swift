@@ -11,54 +11,48 @@ import Cocoa
 final class TabbedWindow: NSWindow {
     // MARK: -
     // MARK: Lifecycle
-    override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
-        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, `defer`: flag)
+    override init(contentRect: NSRect, styleMask aStyle: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
+        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
         
         finishInit()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        finishInit()
-    }
-    
-    private func finishInit() {
-        titleVisibility = .Hidden
+    fileprivate func finishInit() {
+        titleVisibility = .hidden
         titlebarAppearsTransparent = true
         
         hideStandardButtons()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didEnterFullScreen:", name: NSWindowDidEnterFullScreenNotification, object: self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willExitFullScreen:", name: NSWindowWillExitFullScreenNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TabbedWindow.didEnterFullScreen(_:)), name: NSNotification.Name.NSWindowDidEnterFullScreen, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TabbedWindow.willExitFullScreen(_:)), name: NSNotification.Name.NSWindowWillExitFullScreen, object: self)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSWindowDidEnterFullScreenNotification, object: self)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSWindowWillExitFullScreenNotification, object: self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSWindowDidEnterFullScreen, object: self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSWindowWillExitFullScreen, object: self)
     }
     
     // MARK: -
     // MARK: Private API
-    private func showStandardButtons() {
-        standardWindowButton(.CloseButton)!.hidden = false
-        standardWindowButton(.MiniaturizeButton)!.hidden = false
-        standardWindowButton(.ZoomButton)!.hidden = false
+    fileprivate func showStandardButtons() {
+        standardWindowButton(.closeButton)!.isHidden = false
+        standardWindowButton(.miniaturizeButton)!.isHidden = false
+        standardWindowButton(.zoomButton)!.isHidden = false
     }
     
-    private func hideStandardButtons() {
-        standardWindowButton(.CloseButton)!.hidden = true
-        standardWindowButton(.MiniaturizeButton)!.hidden = true
-        standardWindowButton(.ZoomButton)!.hidden = true
+    fileprivate func hideStandardButtons() {
+        standardWindowButton(.closeButton)!.isHidden = true
+        standardWindowButton(.miniaturizeButton)!.isHidden = true
+        standardWindowButton(.zoomButton)!.isHidden = true
     }
     
     // MARK: -
     // MARK: Notifications
-    private dynamic func didEnterFullScreen(notification: NSNotification) {
+    fileprivate dynamic func didEnterFullScreen(_ notification: Notification) {
         showStandardButtons()
     }
     
-    private dynamic func willExitFullScreen(notification: NSNotification) {
+    fileprivate dynamic func willExitFullScreen(_ notification: Notification) {
         hideStandardButtons()
     }
 }

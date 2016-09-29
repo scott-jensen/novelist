@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public final class Paragraph: Object, Equatable, Hashable {
+public final class Paragraph: Object {
     // MARK: -
     // MARK: Public Properties
     public dynamic var text = ""

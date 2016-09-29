@@ -12,14 +12,14 @@ import RealmSwift
 final class OutlineNotesViewController: NSViewController, NSTextViewDelegate, NSTextStorageDelegate, TextMutationControllerDelegate {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private dynamic var textView: NSTextView? {
+    @IBOutlet fileprivate dynamic var textView: NSTextView? {
         didSet {
             textView?.textStorage?.delegate = self
             textView?.typingAttributes = textAttributes
         }
     }
     
-    private let textAttributes: [String: AnyObject] = {
+    fileprivate let textAttributes: [String: AnyObject] = {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = 23
         paragraphStyle.lineSpacing = 4
@@ -30,7 +30,7 @@ final class OutlineNotesViewController: NSViewController, NSTextViewDelegate, NS
         ]
     }()
     
-    private lazy var textMutationController: TextMutationController = {
+    fileprivate lazy var textMutationController: TextMutationController = {
         let controller = TextMutationController()
         controller.delegate = self
         return controller
@@ -52,7 +52,7 @@ final class OutlineNotesViewController: NSViewController, NSTextViewDelegate, NS
     
     // MARK: -
     // MARK: Observing
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "state.selectedIndexPath" {
             reloadText()
         }
@@ -92,29 +92,29 @@ final class OutlineNotesViewController: NSViewController, NSTextViewDelegate, NS
     // MARK: Internal Static API
     internal static func instantiateFromStoryboard() -> OutlineNotesViewController {
         let storyboard = NSStoryboard(name: "Document", bundle: nil)
-        let controller = storyboard.instantiateControllerWithIdentifier("OutlineNotes")
+        let controller = storyboard.instantiateController(withIdentifier: "OutlineNotes")
         return controller as! OutlineNotesViewController
     }
     
     // MARK: -
     // MARK: Private API
-    private func reloadText() {
+    fileprivate func reloadText() {
         guard let textView = textView else {
             return
         }
         
         guard state?.selectedIndexPath.chapter != nil && state?.selectedIndexPath.section != nil else {
             textView.string = ""
-            textView.editable = false
+            textView.isEditable = false
             return
         }
         
-        textView.editable = true
+        textView.isEditable = true
         
         textMutationController.reloadText()
     }
     
-    private func displayError(error: ErrorType) {
+    fileprivate func displayError(_ error: Error) {
         let alert = NSAlert()
         alert.messageText = "Could not Change Text"
         alert.informativeText = "The text could not be changed at this time."
@@ -123,47 +123,47 @@ final class OutlineNotesViewController: NSViewController, NSTextViewDelegate, NS
     
     // MARK: -
     // MARK: NSTextDelegate
-    func textDidChange(notification: NSNotification) {
+    func textDidChange(_ notification: Notification) {
         textMutationController.scheduleTextChangeCommit()
     }
     
     // MARK: -
     // MARK: NSTextStorageDelegate
-    func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+    func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
         textStorage.setAttributes(textAttributes, range: editedRange)
     }
     
     // MARK: -
     // MARK: TextMutationControllerDelegate
-    func textViewTextInTextMutationController(controller: TextMutationController) -> String? {
+    func textViewTextInTextMutationController(_ controller: TextMutationController) -> String? {
         return textView?.string
     }
     
-    func paragraphsInTextMutationController(controller: TextMutationController) -> List<Paragraph>? {
+    func paragraphsInTextMutationController(_ controller: TextMutationController) -> List<Paragraph>? {
         return sectionInTextMutationController(controller)?.noteParagraphs
     }
     
-    func sectionInTextMutationController(controller: TextMutationController) -> Section? {
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter, sectionIndex = state?.selectedIndexPath.section else {
+    func sectionInTextMutationController(_ controller: TextMutationController) -> Section? {
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter, let sectionIndex = state?.selectedIndexPath.section else {
             return nil
         }
         
         return book.chapters[chapterIndex].sections[sectionIndex]
     }
     
-    func textMutationController(controller: TextMutationController, deleteTextViewCharactersInRange range: NSRange) {
-        if let textView = textView, textStorage = textView.textStorage {
-            textStorage.deleteCharactersInRange(range)
+    func textMutationController(_ controller: TextMutationController, deleteTextViewCharactersInRange range: NSRange) {
+        if let textView = textView, let textStorage = textView.textStorage {
+            textStorage.deleteCharacters(in: range)
         }
     }
     
-    func textMutationController(controller: TextMutationController, insertString string: String, atIndex index: Int) {
-        if let textView = textView, textStorage = textView.textStorage {
-            textStorage.insertAttributedString(NSAttributedString(string: string), atIndex: index)
+    func textMutationController(_ controller: TextMutationController, insertString string: String, atIndex index: Int) {
+        if let textView = textView, let textStorage = textView.textStorage {
+            textStorage.insert(NSAttributedString(string: string), at: index)
         }
     }
     
-    func textMutationController(controller: TextMutationController, threwError error: NSError) {
+    func textMutationController(_ controller: TextMutationController, threwError error: NSError) {
         displayError(error)
     }
 }

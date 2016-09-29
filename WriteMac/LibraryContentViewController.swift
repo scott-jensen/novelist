@@ -11,12 +11,12 @@ import Cocoa
 final class LibraryContentViewController: NSViewController, LibraryContentDataControllerDelegate, NSTableViewDataSource, NSTableViewDelegate {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private dynamic var tableView: NSTableView?
-    @IBOutlet private dynamic var editBookButton: NSButton?
-    @IBOutlet private dynamic var deleteBookButton: NSButton?
+    @IBOutlet fileprivate dynamic var tableView: NSTableView?
+    @IBOutlet fileprivate dynamic var editBookButton: NSButton?
+    @IBOutlet fileprivate dynamic var deleteBookButton: NSButton?
     
-    private let dataController = LibraryContentDataController()
-    private var documentWindowController: DocumentWindowController?
+    fileprivate let dataController = LibraryContentDataController()
+    fileprivate var documentWindowController: DocumentWindowController?
     
     // MARK: -
     // MARK: NSViewController
@@ -35,7 +35,7 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
     
     // MARK: -
     // MARK: Actions
-    @IBAction private dynamic func newBook(sender: AnyObject) {
+    @IBAction fileprivate dynamic func newBook(_ sender: AnyObject) {
         do {
             try dataController.createBook()
         } catch {
@@ -46,7 +46,7 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
         }
     }
     
-    @IBAction private dynamic func delete(sender: AnyObject) {
+    @IBAction fileprivate dynamic func delete(_ sender: AnyObject) {
         guard let book = dataController.selectedBook else {
             NSBeep()
             return
@@ -62,7 +62,7 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
         }
     }
     
-    @IBAction private dynamic func editBook(sender: AnyObject) {
+    @IBAction fileprivate dynamic func editBook(_ sender: AnyObject) {
         guard let book = dataController.selectedBook else {
             NSBeep()
             return
@@ -78,14 +78,14 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
     
     // MARK: -
     // MARK: Private API
-    private func reloadState() {
-        editBookButton?.enabled = dataController.selectedBook != nil
-        deleteBookButton?.enabled = dataController.selectedBook != nil
+    fileprivate func reloadState() {
+        editBookButton?.isEnabled = dataController.selectedBook != nil
+        deleteBookButton?.isEnabled = dataController.selectedBook != nil
     }
     
     // MARK: -
     // MARK: NSMenuValidation
-    override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         if menuItem.tag == MenuTags.Delete {
             return dataController.selectedBook != nil
         }
@@ -95,14 +95,14 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
     
     // MARK: -
     // MARK: LibraryContentDataControllerDelegate
-    func libraryContentDataControllerDidChangeBooks(controller: LibraryContentDataController) {
+    func libraryContentDataControllerDidChangeBooks(_ controller: LibraryContentDataController) {
         tableView?.reloadData()
         reloadState()
     }
     
-    func libraryContentDataControllerDidChangeSelectedBook(controller: LibraryContentDataController) {
+    func libraryContentDataControllerDidChangeSelectedBook(_ controller: LibraryContentDataController) {
         if let index = dataController.indexOfSelectedBook {
-            tableView?.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
+            tableView?.selectRowIndexes(IndexSet(integer: index), byExtendingSelection: false)
         } else {
             tableView?.deselectAll(nil)
         }
@@ -111,21 +111,21 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
     
     // MARK: -
     // MARK: NSTableViewDataSource
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return dataController.books.count
     }
     
-    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         let book = dataController.books[row]
         return book.title
     }
     
-    func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, forTableColumn tableColumn: NSTableColumn?, row: Int) {
+    func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
         guard let book = dataController.selectedBook else {
             return
         }
         
-        guard let newTitle = (object as? String)?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) where newTitle.characters.count > 0 else {
+        guard let newTitle = (object as? String)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) , newTitle.characters.count > 0 else {
             return
         }
         
@@ -141,7 +141,7 @@ final class LibraryContentViewController: NSViewController, LibraryContentDataCo
     
     // MARK: -
     // MARK: NSTableViewDelegate
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         guard let tableView = tableView else {
             return
         }

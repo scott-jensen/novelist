@@ -36,12 +36,12 @@ final class DocumentWindowState: NSObject {
     var selectedIndexPath = BookIndexPath() {
         willSet {
             if selectedIndexPath != newValue {
-                NSNotificationCenter.defaultCenter().postNotificationName(DocumentWindowStateSelectedIndexPathWillChangeNotification, object: self)
-                willChangeValueForKey("selectedIndexPath")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: DocumentWindowStateSelectedIndexPathWillChangeNotification), object: self)
+                willChangeValue(forKey: "selectedIndexPath")
             }
         } didSet {
             if oldValue != selectedIndexPath {
-                didChangeValueForKey("selectedIndexPath")
+                didChangeValue(forKey: "selectedIndexPath")
             }
         }
     }

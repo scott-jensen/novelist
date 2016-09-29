@@ -11,10 +11,10 @@ import Cocoa
 final class WriteNavigationViewController: NSViewController {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private dynamic var chapterPopupButton: NSPopUpButton?
-    @IBOutlet private dynamic var sectionPopupButton: NSPopUpButton?
-    @IBOutlet private dynamic var chapterNameTextField: NSTextField?
-    @IBOutlet private dynamic var sectionNameTextField: NSTextField?
+    @IBOutlet fileprivate dynamic var chapterPopupButton: NSPopUpButton?
+    @IBOutlet fileprivate dynamic var sectionPopupButton: NSPopUpButton?
+    @IBOutlet fileprivate dynamic var chapterNameTextField: NSTextField?
+    @IBOutlet fileprivate dynamic var sectionNameTextField: NSTextField?
     
     // MARK: -
     // MARK: Internal Properties
@@ -23,7 +23,7 @@ final class WriteNavigationViewController: NSViewController {
     
     // MARK: -
     // MARK: Observing
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "state.selectedIndexPath" {
             reloadComboBoxes()
             reloadChapterNameTextField()
@@ -53,8 +53,8 @@ final class WriteNavigationViewController: NSViewController {
     
     // MARK: -
     // MARK: Actions
-    @IBAction private dynamic func goBack(sender: AnyObject) {
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter, sectionIndex = state?.selectedIndexPath.section else {
+    @IBAction fileprivate dynamic func goBack(_ sender: AnyObject) {
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter, let sectionIndex = state?.selectedIndexPath.section else {
             NSBeep()
             return
         }
@@ -62,7 +62,7 @@ final class WriteNavigationViewController: NSViewController {
         var destinationChapterIndex = chapterIndex
         var destinationSectionIndex = sectionIndex - 1
         while destinationSectionIndex < 0 {
-            destinationChapterIndex--
+            destinationChapterIndex -= 1
             guard destinationChapterIndex >= 0 else {
                 NSBeep()
                 return
@@ -73,8 +73,8 @@ final class WriteNavigationViewController: NSViewController {
         state?.selectedIndexPath = BookIndexPath(chapter: destinationChapterIndex, section: destinationSectionIndex)
     }
     
-    @IBAction private dynamic func goForward(sender: AnyObject) {
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter, sectionIndex = state?.selectedIndexPath.section else {
+    @IBAction fileprivate dynamic func goForward(_ sender: AnyObject) {
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter, let sectionIndex = state?.selectedIndexPath.section else {
             NSBeep()
             return
         }
@@ -82,7 +82,7 @@ final class WriteNavigationViewController: NSViewController {
         var destinationChapterIndex = chapterIndex
         var destinationSectionIndex = sectionIndex + 1
         while destinationSectionIndex >= book.chapters[destinationChapterIndex].sections.count {
-            destinationChapterIndex++
+            destinationChapterIndex += 1
             guard destinationChapterIndex < book.chapters.count else {
                 NSBeep()
                 return
@@ -93,8 +93,8 @@ final class WriteNavigationViewController: NSViewController {
         state?.selectedIndexPath = BookIndexPath(chapter: destinationChapterIndex, section: destinationSectionIndex)
     }
     
-    @IBAction private dynamic func changeSelectedChapter(sender: AnyObject) {
-        guard let state = state, chapterPopupButton = chapterPopupButton, book = book else {
+    @IBAction fileprivate dynamic func changeSelectedChapter(_ sender: AnyObject) {
+        guard let state = state, let chapterPopupButton = chapterPopupButton, let book = book else {
             return
         }
         
@@ -110,8 +110,8 @@ final class WriteNavigationViewController: NSViewController {
         }
     }
     
-    @IBAction private dynamic func changeSelectedSection(sender: AnyObject) {
-        guard let state = state, sectionPopupButton = sectionPopupButton, chapterIndex = state.selectedIndexPath.chapter else {
+    @IBAction fileprivate dynamic func changeSelectedSection(_ sender: AnyObject) {
+        guard let state = state, let sectionPopupButton = sectionPopupButton, let chapterIndex = state.selectedIndexPath.chapter else {
             return
         }
         
@@ -122,8 +122,8 @@ final class WriteNavigationViewController: NSViewController {
         }
     }
     
-    @IBAction private dynamic func changeChapterTitle(sender: AnyObject) {
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter else {
+    @IBAction fileprivate dynamic func changeChapterTitle(_ sender: AnyObject) {
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter else {
             return
         }
         
@@ -131,7 +131,7 @@ final class WriteNavigationViewController: NSViewController {
         
         do {
             try DataCenter.sharedCenter.realm.write {
-                if let title = self.chapterNameTextField?.stringValue where title.characters.count > 0 {
+                if let title = self.chapterNameTextField?.stringValue , title.characters.count > 0 {
                     chapter.title = title
                 } else {
                     chapter.title = nil
@@ -145,8 +145,8 @@ final class WriteNavigationViewController: NSViewController {
         }
     }
     
-    @IBAction private dynamic func changeSectionTitle(sender: AnyObject) {
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter, sectionIndex = state?.selectedIndexPath.section else {
+    @IBAction fileprivate dynamic func changeSectionTitle(_ sender: AnyObject) {
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter, let sectionIndex = state?.selectedIndexPath.section else {
             return
         }
         
@@ -154,7 +154,7 @@ final class WriteNavigationViewController: NSViewController {
         
         do {
             try DataCenter.sharedCenter.realm.write {
-                if let title = self.sectionNameTextField?.stringValue where title.characters.count > 0 {
+                if let title = self.sectionNameTextField?.stringValue , title.characters.count > 0 {
                     section.title = title
                 } else {
                     section.title = nil
@@ -170,26 +170,26 @@ final class WriteNavigationViewController: NSViewController {
     
     // MARK: -
     // MARK: Private API
-    private func reloadComboBoxes() {
-        guard let chapterPopupButton = chapterPopupButton, sectionPopupButton = sectionPopupButton else {
+    fileprivate func reloadComboBoxes() {
+        guard let chapterPopupButton = chapterPopupButton, let sectionPopupButton = sectionPopupButton else {
             return
         }
         
         chapterPopupButton.removeAllItems()
         sectionPopupButton.removeAllItems()
         
-        chapterPopupButton.addItemWithTitle("---")
-        sectionPopupButton.addItemWithTitle("---")
+        chapterPopupButton.addItem(withTitle: "---")
+        sectionPopupButton.addItem(withTitle: "---")
         
         guard let book = book else {
             return
         }
         
-        for (index, chapter) in book.chapters.enumerate() {
+        for (index, chapter) in book.chapters.enumerated() {
             if let title = chapter.title {
-                chapterPopupButton.addItemWithTitle("Chapter \(index + 1): \(title)")
+                chapterPopupButton.addItem(withTitle: "Chapter \(index + 1): \(title)")
             } else {
-                chapterPopupButton.addItemWithTitle("Chapter \(index + 1)")
+                chapterPopupButton.addItem(withTitle: "Chapter \(index + 1)")
             }
         }
         
@@ -197,15 +197,15 @@ final class WriteNavigationViewController: NSViewController {
             return
         }
         
-        chapterPopupButton.selectItemAtIndex(chapterIndex + 1)
+        chapterPopupButton.selectItem(at: chapterIndex + 1)
         
         let sections = book.chapters[chapterIndex].sections
         
-        for (index, section) in sections.enumerate() {
+        for (index, section) in sections.enumerated() {
             if let title = section.title {
-                sectionPopupButton.addItemWithTitle("Section \(index + 1): \(title)")
+                sectionPopupButton.addItem(withTitle: "Section \(index + 1): \(title)")
             } else {
-                sectionPopupButton.addItemWithTitle("Section \(index + 1)")
+                sectionPopupButton.addItem(withTitle: "Section \(index + 1)")
             }
         }
         
@@ -213,41 +213,41 @@ final class WriteNavigationViewController: NSViewController {
             return
         }
         
-        sectionPopupButton.selectItemAtIndex(sectionIndex + 1)
+        sectionPopupButton.selectItem(at: sectionIndex + 1)
     }
     
-    private func reloadChapterNameTextField() {
+    fileprivate func reloadChapterNameTextField() {
         guard let chapterNameTextField = chapterNameTextField else {
             return
         }
         
         chapterNameTextField.stringValue = ""
         
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter else {
-            chapterNameTextField.enabled = false
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter else {
+            chapterNameTextField.isEnabled = false
             return
         }
         
-        chapterNameTextField.enabled = true
+        chapterNameTextField.isEnabled = true
         
         if let chapterName = book.chapters[chapterIndex].title {
             chapterNameTextField.stringValue = chapterName
         }
     }
     
-    private func reloadSectionNameTextField() {
+    fileprivate func reloadSectionNameTextField() {
         guard let sectionNameTextField = sectionNameTextField else {
             return
         }
         
         sectionNameTextField.stringValue = ""
         
-        guard let book = book, chapterIndex = state?.selectedIndexPath.chapter, sectionIndex = state?.selectedIndexPath.section else {
-            sectionNameTextField.enabled = false
+        guard let book = book, let chapterIndex = state?.selectedIndexPath.chapter, let sectionIndex = state?.selectedIndexPath.section else {
+            sectionNameTextField.isEnabled = false
             return
         }
         
-        sectionNameTextField.enabled = true
+        sectionNameTextField.isEnabled = true
         
         if let sectionName = book.chapters[chapterIndex].sections[sectionIndex].title {
             sectionNameTextField.stringValue = sectionName

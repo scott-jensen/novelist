@@ -10,20 +10,20 @@ import Cocoa
 import RealmSwift
 
 @objc protocol LibraryContentDataControllerDelegate {
-    func libraryContentDataControllerDidChangeBooks(controller: LibraryContentDataController)
-    func libraryContentDataControllerDidChangeSelectedBook(controller: LibraryContentDataController)
+    func libraryContentDataControllerDidChangeBooks(_ controller: LibraryContentDataController)
+    func libraryContentDataControllerDidChangeSelectedBook(_ controller: LibraryContentDataController)
 }
 
 final class LibraryContentDataController: NSObject {
     // MARK: -
     // MARK: Private Properties
-    private var realm: Realm {
+    fileprivate var realm: Realm {
         return DataCenter.sharedCenter.realm
     }
     
     // MARK: -
     // MARK: Internal Properties
-    private(set) internal var books = [Book]() {
+    fileprivate(set) internal var books = [Book]() {
         didSet {
             delegate?.libraryContentDataControllerDidChangeBooks(self)
         }
@@ -38,7 +38,7 @@ final class LibraryContentDataController: NSObject {
             }
         } set {
             if let book = newValue {
-                indexOfSelectedBook = books.indexOf { $0 == book }
+                indexOfSelectedBook = books.index { $0 == book }
             } else {
                 indexOfSelectedBook = nil
             }
@@ -63,8 +63,8 @@ final class LibraryContentDataController: NSObject {
     
     // MARK: -
     // MARK: Private API
-    private func reloadData() {
-        let newBooks = Array(realm.objects(Book).sorted("title"))
+    fileprivate func reloadData() {
+        let newBooks = Array(realm.objects(Book.self).sorted(byProperty: "title"))
         if newBooks != books {
             books = newBooks
         }
@@ -83,7 +83,7 @@ final class LibraryContentDataController: NSObject {
         reloadData()
     }
     
-    internal func deleteBook(book: Book) throws {
+    internal func deleteBook(_ book: Book) throws {
         try book.cascadeDeleteChildren()
         
         try realm.write {
@@ -93,7 +93,7 @@ final class LibraryContentDataController: NSObject {
         reloadData()
     }
     
-    internal func changeTitleOfBook(book: Book, to newTitle: String) throws {
+    internal func changeTitleOfBook(_ book: Book, to newTitle: String) throws {
         try realm.write {
             book.title = newTitle
         }

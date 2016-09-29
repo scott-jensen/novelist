@@ -10,19 +10,19 @@ import Cocoa
 import RealmSwift
 
 protocol OutlineContentViewControllerDelegate: class {
-    func showTextActionFromOutlineContentViewController(outlineContentViewController: OutlineContentViewController)
+    func showTextActionFromOutlineContentViewController(_ outlineContentViewController: OutlineContentViewController)
 }
 
 final class OutlineContentViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private dynamic var tableScrollView: NSScrollView?
-    @IBOutlet private dynamic var tableView: NSTableView?
-    @IBOutlet private dynamic var deleteButton: NSButton?
-    @IBOutlet private dynamic var newSectionButton: NSButton?
+    @IBOutlet fileprivate dynamic var tableScrollView: NSScrollView?
+    @IBOutlet fileprivate dynamic var tableView: NSTableView?
+    @IBOutlet fileprivate dynamic var deleteButton: NSButton?
+    @IBOutlet fileprivate dynamic var newSectionButton: NSButton?
     
-    private var notificationToken: NotificationToken?
-    private var dataController: OutlineContentDataController?
+    fileprivate var notificationToken: NotificationToken?
+    fileprivate var dataController: OutlineContentDataController?
     
     // MARK: -
     // MARK: Internal Properties
@@ -48,7 +48,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
     
     // MARK: -
     // MARK: Lifecycle
-    override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         finishInit()
@@ -60,7 +60,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         finishInit()
     }
     
-    private func finishInit() {
+    fileprivate func finishInit() {
         addObserver(self, forKeyPath: "state.selectedIndexPath", options: [], context: nil)
     }
     
@@ -70,7 +70,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
     
     // MARK: -
     // MARK: Observing
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "state.selectedIndexPath" {
             reloadSelection()
         }
@@ -97,14 +97,12 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
     override func viewDidDisappear() {
         super.viewDidDisappear()
         
-        if let notificationToken = notificationToken {
-            DataCenter.sharedCenter.realm.removeNotification(notificationToken)
-        }
+        notificationToken?.stop()
     }
     
     // MARK: -
     // MARK: Actions
-    @IBAction private dynamic func delete(sender: AnyObject) {
+    @IBAction fileprivate dynamic func delete(_ sender: AnyObject) {
         guard let state = state else {
             return
         }
@@ -119,7 +117,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         }
     }
     
-    @IBAction private dynamic func newChapter(sender: AnyObject) {
+    @IBAction fileprivate dynamic func newChapter(_ sender: AnyObject) {
         guard let state = state else {
             return
         }
@@ -134,7 +132,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         }
     }
     
-    @IBAction private dynamic func newSection(sender: AnyObject) {
+    @IBAction fileprivate dynamic func newSection(_ sender: AnyObject) {
         guard let state = state else {
             return
         }
@@ -149,7 +147,7 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         }
     }
     
-    @IBAction private dynamic func writeFromSelection(sender: AnyObject) {
+    @IBAction fileprivate dynamic func writeFromSelection(_ sender: AnyObject) {
         if state?.selectedIndexPath.section != nil {
             delegate?.showTextActionFromOutlineContentViewController(self)
         }
@@ -157,51 +155,51 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
     
     // MARK: -
     // MARK: Private API
-    private func reloadData() {
+    fileprivate func reloadData() {
         tableView?.reloadData()
         reloadSelection()
         tableScrollView?.flashScrollers()
     }
     
-    private func reloadSelection() {
-        guard let dataController = dataController, tableView = tableView, selectedIndexPath = state?.selectedIndexPath else {
+    fileprivate func reloadSelection() {
+        guard let dataController = dataController, let tableView = tableView, let selectedIndexPath = state?.selectedIndexPath else {
             return
         }
         
         if let index = dataController.tableRowForIndexPath(selectedIndexPath) {
-            deleteButton?.enabled = true
-            newSectionButton?.enabled = selectedIndexPath.chapter != nil
-            tableView.selectRowIndexes(NSIndexSet(index: index), byExtendingSelection: false)
+            deleteButton?.isEnabled = true
+            newSectionButton?.isEnabled = selectedIndexPath.chapter != nil
+            tableView.selectRowIndexes(IndexSet(integer: index), byExtendingSelection: false)
         } else {
-            deleteButton?.enabled = false
-            newSectionButton?.enabled = false
+            deleteButton?.isEnabled = false
+            newSectionButton?.isEnabled = false
             tableView.deselectAll(nil)
         }
     }
     
     // MARK: -
     // MARK: NSTableViewDataSource
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return dataController?.tableNumberOfRows ?? 0
     }
     
     // MARK: -
     // MARK: NSTableViewDelegate
-    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         guard let dataController = dataController else {
             return 20
         }
         
         let representation = dataController.tableRepresentation(row)
         switch representation.rowType {
-        case .Chapter:
+        case .chapter:
             return 55
-        case .Section:
+        case .section:
             return 22
         }
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let dataController = dataController else {
             return nil
         }
@@ -209,15 +207,15 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         let representation = dataController.tableRepresentation(row)
         let view: NSTableCellView
         switch representation.rowType {
-        case .Chapter:
-            view = tableView.makeViewWithIdentifier("Chapter", owner: nil) as! NSTableCellView
+        case .chapter:
+            view = tableView.make(withIdentifier: "Chapter", owner: nil) as! NSTableCellView
             if let title = representation.title {
                 view.textField?.stringValue = "Chapter \(representation.indexPath.chapter! + 1): \(title)"
             } else {
                 view.textField?.stringValue = "Chapter \(representation.indexPath.chapter! + 1)"
             }
-        case .Section:
-            view = tableView.makeViewWithIdentifier("Section", owner: nil) as! NSTableCellView
+        case .section:
+            view = tableView.make(withIdentifier: "Section", owner: nil) as! NSTableCellView
             if let title = representation.title {
                 view.textField?.stringValue = "Section \(representation.indexPath.section! + 1): \(title)"
             } else {
@@ -228,12 +226,12 @@ final class OutlineContentViewController: NSViewController, NSTableViewDelegate,
         return view
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
-        guard let dataController = dataController, state = state else {
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        guard let dataController = dataController, let state = state else {
             return
         }
         
-        guard let tableViewIndex = tableView?.selectedRow where tableViewIndex != -1 else {
+        guard let tableViewIndex = tableView?.selectedRow , tableViewIndex != -1 else {
             state.selectedIndexPath = BookIndexPath()
             return
         }

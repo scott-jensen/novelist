@@ -9,17 +9,17 @@
 import Cocoa
 
 @objc protocol DocumentWindowTitleBarViewControllerDelegate {
-    func titleBarViewControllerShowOutlineAction(titleBarViewController: DocumentWindowTitleBarViewController)
-    func titleBarViewControllerShowTextAction(titleBarViewController: DocumentWindowTitleBarViewController)
-    func titleBarViewControllerShowOutlineNotesAction(titleBarViewController: DocumentWindowTitleBarViewController)
-    func titleBarViewControllerShowNotepadAction(titleBarViewController: DocumentWindowTitleBarViewController)
+    func titleBarViewControllerShowOutlineAction(_ titleBarViewController: DocumentWindowTitleBarViewController)
+    func titleBarViewControllerShowTextAction(_ titleBarViewController: DocumentWindowTitleBarViewController)
+    func titleBarViewControllerShowOutlineNotesAction(_ titleBarViewController: DocumentWindowTitleBarViewController)
+    func titleBarViewControllerShowNotepadAction(_ titleBarViewController: DocumentWindowTitleBarViewController)
 }
 
 final class DocumentWindowTitleBarViewController: NSTitlebarAccessoryViewController {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private var trafficLightContainerView: NSView?
-    @IBOutlet private var notesStackView: NSStackView?
+    @IBOutlet fileprivate var trafficLightContainerView: NSView?
+    @IBOutlet fileprivate var notesStackView: NSStackView?
     
     // MARK: -
     // MARK: Internal Properties
@@ -32,7 +32,7 @@ final class DocumentWindowTitleBarViewController: NSTitlebarAccessoryViewControl
     
     // MARK: -
     // MARK: Lifecycle
-    override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         finishInit()
@@ -44,14 +44,14 @@ final class DocumentWindowTitleBarViewController: NSTitlebarAccessoryViewControl
         finishInit()
     }
     
-    private func finishInit() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willEnterFullScreen:", name: NSWindowWillEnterFullScreenNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willExitFullScreen:", name: NSWindowWillExitFullScreenNotification, object: nil)
+    fileprivate func finishInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(DocumentWindowTitleBarViewController.willEnterFullScreen(_:)), name: NSNotification.Name.NSWindowWillEnterFullScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DocumentWindowTitleBarViewController.willExitFullScreen(_:)), name: NSNotification.Name.NSWindowWillExitFullScreen, object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSWindowDidEnterFullScreenNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSWindowWillExitFullScreenNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSWindowDidEnterFullScreen, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSWindowWillExitFullScreen, object: nil)
     }
     
     // MARK: -
@@ -64,54 +64,54 @@ final class DocumentWindowTitleBarViewController: NSTitlebarAccessoryViewControl
     
     // MARK: -
     // MARK: Actions
-    @IBAction private dynamic func closeWindow(sender: AnyObject) {
-        let button = view.window?.standardWindowButton(.CloseButton)
+    @IBAction fileprivate dynamic func closeWindow(_ sender: AnyObject) {
+        let button = view.window?.standardWindowButton(.closeButton)
         button?.sendAction(button!.action, to: button!.target)
     }
     
-    @IBAction private dynamic func minimizeWindow(sender: AnyObject) {
-        let button = view.window?.standardWindowButton(.MiniaturizeButton)
+    @IBAction fileprivate dynamic func minimizeWindow(_ sender: AnyObject) {
+        let button = view.window?.standardWindowButton(.miniaturizeButton)
         button?.sendAction(button!.action, to: button!.target)
     }
     
-    @IBAction private dynamic func zoomWindow(sender: AnyObject) {
-        let button = view.window?.standardWindowButton(.ZoomButton)
+    @IBAction fileprivate dynamic func zoomWindow(_ sender: AnyObject) {
+        let button = view.window?.standardWindowButton(.zoomButton)
         button?.sendAction(button!.action, to: button!.target)
     }
     
-    @IBAction private dynamic func showOutline(sender: AnyObject) {
+    @IBAction fileprivate dynamic func showOutline(_ sender: AnyObject) {
         delegate?.titleBarViewControllerShowOutlineAction(self)
     }
     
-    @IBAction private dynamic func showText(sender: AnyObject) {
+    @IBAction fileprivate dynamic func showText(_ sender: AnyObject) {
         delegate?.titleBarViewControllerShowTextAction(self)
     }
     
-    @IBAction private dynamic func showOutlineNotes(sender: AnyObject) {
+    @IBAction fileprivate dynamic func showOutlineNotes(_ sender: AnyObject) {
         delegate?.titleBarViewControllerShowOutlineNotesAction(self)
     }
     
-    @IBAction private dynamic func showNotepad(sender: AnyObject) {
+    @IBAction fileprivate dynamic func showNotepad(_ sender: AnyObject) {
         delegate?.titleBarViewControllerShowNotepadAction(self)
     }
     
     // MARK: -
     // MARK: Private API
-    private func reloadNotesStackViewHidden() {
-        notesStackView?.hidden = !secondaryContentSupported
+    fileprivate func reloadNotesStackViewHidden() {
+        notesStackView?.isHidden = !secondaryContentSupported
     }
     
     // MARK: -
     // MARK: Notifications
-    private dynamic func willEnterFullScreen(notification: NSNotification) {
+    fileprivate dynamic func willEnterFullScreen(_ notification: Notification) {
         if notification.object as? NSWindow == view.window {
-            trafficLightContainerView?.hidden = true
+            trafficLightContainerView?.isHidden = true
         }
     }
     
-    private dynamic func willExitFullScreen(notification: NSNotification) {
+    fileprivate dynamic func willExitFullScreen(_ notification: Notification) {
         if notification.object as? NSWindow == view.window {
-            trafficLightContainerView?.hidden = false
+            trafficLightContainerView?.isHidden = false
         }
     }
 }

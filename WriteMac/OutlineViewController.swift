@@ -9,19 +9,19 @@
 import Cocoa
 
 protocol OutlineViewControllerDelegate: class {
-    func showTextActionForOutlineViewController(outlineViewController: OutlineViewController)
+    func showTextActionForOutlineViewController(_ outlineViewController: OutlineViewController)
 }
 
 final class OutlineViewController: NSViewController, DocumentWindowViewControllerSettings, OutlineContentViewControllerDelegate {
     // MARK: -
     // MARK: Private Properties
-    private var metadataViewController: OutlineMetadataViewController? {
+    fileprivate var metadataViewController: OutlineMetadataViewController? {
         didSet {
             metadataViewController?.book = book
         }
     }
     
-    private var contentViewController: OutlineContentViewController? {
+    fileprivate var contentViewController: OutlineContentViewController? {
         didSet {
             contentViewController?.book = book
         }
@@ -48,7 +48,7 @@ final class OutlineViewController: NSViewController, DocumentWindowViewControlle
     
     // MARK: -
     // MARK: NSViewController
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let metadataViewController = segue.destinationController as? OutlineMetadataViewController {
             self.metadataViewController = metadataViewController
         }
@@ -63,13 +63,13 @@ final class OutlineViewController: NSViewController, DocumentWindowViewControlle
     // MARK: Internal Static API
     internal static func instantiateFromStoryboard() -> OutlineViewController {
         let storyboard = NSStoryboard(name: "Document", bundle: nil)
-        let controller = storyboard.instantiateControllerWithIdentifier("Outline")
+        let controller = storyboard.instantiateController(withIdentifier: "Outline")
         return controller as! OutlineViewController
     }
     
     // MARK: -
     // MARK: OutlineContentViewControllerDelegate
-    func showTextActionFromOutlineContentViewController(outlineContentViewController: OutlineContentViewController) {
+    func showTextActionFromOutlineContentViewController(_ outlineContentViewController: OutlineContentViewController) {
         delegate?.showTextActionForOutlineViewController(self)
     }
 }

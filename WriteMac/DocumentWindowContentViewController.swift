@@ -16,38 +16,38 @@ import Cocoa
 final class DocumentWindowContentViewController: NSViewController, DocumentWindowTitleBarViewControllerDelegate, OutlineViewControllerDelegate {
     // MARK: -
     // MARK: Private Properties
-    @IBOutlet private var mainContentContainerView: NSView?
-    @IBOutlet private var secondaryContentContainerView: NSView?
-    @IBOutlet private var scrubBarContainerView: NSView?
+    @IBOutlet fileprivate var mainContentContainerView: NSView?
+    @IBOutlet fileprivate var secondaryContentContainerView: NSView?
+    @IBOutlet fileprivate var scrubBarContainerView: NSView?
     
-    private var mainPresentedViewController: NSViewController?
-    private var mainPresentedViewControllerConstraints = [NSLayoutConstraint]()
+    fileprivate var mainPresentedViewController: NSViewController?
+    fileprivate var mainPresentedViewControllerConstraints = [NSLayoutConstraint]()
     
-    private var secondaryPresentedViewController: NSViewController?
-    private var secondaryPresentedViewControllerConstraints = [NSLayoutConstraint]()
+    fileprivate var secondaryPresentedViewController: NSViewController?
+    fileprivate var secondaryPresentedViewControllerConstraints = [NSLayoutConstraint]()
     
-    private var titleBarViewController: DocumentWindowTitleBarViewController?
+    fileprivate var titleBarViewController: DocumentWindowTitleBarViewController?
     
-    private var scrubBarViewController: ScrubBarViewController? {
+    fileprivate var scrubBarViewController: ScrubBarViewController? {
         didSet {
             scrubBarViewController?.state = state
             scrubBarViewController?.book = book
         }
     }
     
-    private lazy var outlineViewController: OutlineViewController = {
+    fileprivate lazy var outlineViewController: OutlineViewController = {
         let controller = OutlineViewController.instantiateFromStoryboard()
         controller.delegate = self
         return controller
     }()
     
-    private lazy var writeViewController: WriteViewController = {
+    fileprivate lazy var writeViewController: WriteViewController = {
         let controller = WriteViewController.instantiateFromStoryboard()
         
         return controller
     }()
     
-    private lazy var outlineNotesViewController: OutlineNotesViewController = {
+    fileprivate lazy var outlineNotesViewController: OutlineNotesViewController = {
         let controller = OutlineNotesViewController.instantiateFromStoryboard()
         
         return controller
@@ -75,7 +75,7 @@ final class DocumentWindowContentViewController: NSViewController, DocumentWindo
     
     // MARK: -
     // MARK: NSViewController
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let titleBarViewController = segue.destinationController as? DocumentWindowTitleBarViewController {
             self.titleBarViewController = titleBarViewController
             titleBarViewController.delegate = self
@@ -95,7 +95,7 @@ final class DocumentWindowContentViewController: NSViewController, DocumentWindo
     
     // MARK: -
     // MARK: Private API
-    private func presentPrimaryViewController(viewController: NSViewController) {
+    fileprivate func presentPrimaryViewController(_ viewController: NSViewController) {
         guard let settings = viewController as? DocumentWindowViewControllerSettings else {
             fatalError("Presented view controller must support settings")
         }
@@ -104,13 +104,13 @@ final class DocumentWindowContentViewController: NSViewController, DocumentWindo
             fatalError("Must have main content container view when presenting main view")
         }
         
-        secondaryContentContainerView?.hidden = !settings.supportsSecondaryContent
-        scrubBarContainerView?.hidden = !settings.supportsScrubBar
+        secondaryContentContainerView?.isHidden = !settings.supportsSecondaryContent
+        scrubBarContainerView?.isHidden = !settings.supportsScrubBar
         
         titleBarViewController?.secondaryContentSupported = settings.supportsSecondaryContent
         
         if let mainPresentedViewController = mainPresentedViewController {
-            NSLayoutConstraint.deactivateConstraints(mainPresentedViewControllerConstraints)
+            NSLayoutConstraint.deactivate(mainPresentedViewControllerConstraints)
             mainPresentedViewControllerConstraints = []
             mainPresentedViewController.view.removeFromSuperview()
             mainPresentedViewController.removeFromParentViewController()
@@ -122,21 +122,21 @@ final class DocumentWindowContentViewController: NSViewController, DocumentWindo
         mainContentContainerView.addSubview(viewController.view)
         mainPresentedViewController = viewController
         mainPresentedViewControllerConstraints = [
-            viewController.view.topAnchor.constraintEqualToAnchor(mainContentContainerView.topAnchor),
-            viewController.view.leadingAnchor.constraintEqualToAnchor(mainContentContainerView.leadingAnchor),
-            viewController.view.trailingAnchor.constraintEqualToAnchor(mainContentContainerView.trailingAnchor),
-            viewController.view.bottomAnchor.constraintEqualToAnchor(mainContentContainerView.bottomAnchor)
+            viewController.view.topAnchor.constraint(equalTo: mainContentContainerView.topAnchor),
+            viewController.view.leadingAnchor.constraint(equalTo: mainContentContainerView.leadingAnchor),
+            viewController.view.trailingAnchor.constraint(equalTo: mainContentContainerView.trailingAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: mainContentContainerView.bottomAnchor)
         ]
-        NSLayoutConstraint.activateConstraints(mainPresentedViewControllerConstraints)
+        NSLayoutConstraint.activate(mainPresentedViewControllerConstraints)
     }
     
-    private func presentSecondaryViewController(viewController: NSViewController) {
+    fileprivate func presentSecondaryViewController(_ viewController: NSViewController) {
         guard let secondaryContentContainerView = secondaryContentContainerView else {
             fatalError("Must have secondary content container view when presenting secondary view")
         }
         
         if let secondaryPresentedViewController = secondaryPresentedViewController {
-            NSLayoutConstraint.deactivateConstraints(secondaryPresentedViewControllerConstraints)
+            NSLayoutConstraint.deactivate(secondaryPresentedViewControllerConstraints)
             secondaryPresentedViewControllerConstraints = []
             secondaryPresentedViewController.view.removeFromSuperview()
             secondaryPresentedViewController.removeFromParentViewController()
@@ -148,51 +148,51 @@ final class DocumentWindowContentViewController: NSViewController, DocumentWindo
         secondaryContentContainerView.addSubview(viewController.view)
         secondaryPresentedViewController = viewController
         secondaryPresentedViewControllerConstraints = [
-            viewController.view.topAnchor.constraintEqualToAnchor(secondaryContentContainerView.topAnchor),
-            viewController.view.leadingAnchor.constraintEqualToAnchor(secondaryContentContainerView.leadingAnchor),
-            viewController.view.trailingAnchor.constraintEqualToAnchor(secondaryContentContainerView.trailingAnchor),
-            viewController.view.bottomAnchor.constraintEqualToAnchor(secondaryContentContainerView.bottomAnchor)
+            viewController.view.topAnchor.constraint(equalTo: secondaryContentContainerView.topAnchor),
+            viewController.view.leadingAnchor.constraint(equalTo: secondaryContentContainerView.leadingAnchor),
+            viewController.view.trailingAnchor.constraint(equalTo: secondaryContentContainerView.trailingAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: secondaryContentContainerView.bottomAnchor)
         ]
-        NSLayoutConstraint.activateConstraints(secondaryPresentedViewControllerConstraints)
+        NSLayoutConstraint.activate(secondaryPresentedViewControllerConstraints)
     }
     
-    private func presentOutline() {
+    fileprivate func presentOutline() {
         presentPrimaryViewController(outlineViewController)
     }
     
-    private func presentShowText() {
+    fileprivate func presentShowText() {
         presentPrimaryViewController(writeViewController)
     }
     
-    private func presentOutlineNotes() {
+    fileprivate func presentOutlineNotes() {
         presentSecondaryViewController(outlineNotesViewController)
     }
     
-    private func presentNotepad() {
+    fileprivate func presentNotepad() {
         
     }
     
     // MARK: -
     // MARK: DocumentWindowTitleBarViewControllerDelegate
-    func titleBarViewControllerShowOutlineAction(titleBarViewController: DocumentWindowTitleBarViewController) {
+    func titleBarViewControllerShowOutlineAction(_ titleBarViewController: DocumentWindowTitleBarViewController) {
         presentOutline()
     }
     
-    func titleBarViewControllerShowTextAction(titleBarViewController: DocumentWindowTitleBarViewController) {
+    func titleBarViewControllerShowTextAction(_ titleBarViewController: DocumentWindowTitleBarViewController) {
         presentShowText()
     }
     
-    func titleBarViewControllerShowOutlineNotesAction(titleBarViewController: DocumentWindowTitleBarViewController) {
+    func titleBarViewControllerShowOutlineNotesAction(_ titleBarViewController: DocumentWindowTitleBarViewController) {
         presentOutlineNotes()
     }
     
-    func titleBarViewControllerShowNotepadAction(titleBarViewController: DocumentWindowTitleBarViewController) {
+    func titleBarViewControllerShowNotepadAction(_ titleBarViewController: DocumentWindowTitleBarViewController) {
         presentNotepad()
     }
     
     // MARK: -
     // MARK: OutlineViewControllerDelegate
-    func showTextActionForOutlineViewController(outlineViewController: OutlineViewController) {
+    func showTextActionForOutlineViewController(_ outlineViewController: OutlineViewController) {
         presentShowText()
     }
 }

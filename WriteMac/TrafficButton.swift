@@ -9,12 +9,12 @@
 import Cocoa
 
 final class TrafficButton: NSControl {
-    override func drawRect(dirtyRect: NSRect) {
-        NSImage(named: "traffic")?.drawInRect(bounds)
+    override func draw(_ dirtyRect: NSRect) {
+        NSImage(named: "traffic")?.draw(in: bounds)
     }
     
-    override func mouseUp(theEvent: NSEvent) {
-        let point = convertPoint(theEvent.locationInWindow, fromView: nil)
+    override func mouseUp(with theEvent: NSEvent) {
+        let point = convert(theEvent.locationInWindow, from: nil)
         if bounds.contains(point) {
             sendAction(action, to: target)
         }

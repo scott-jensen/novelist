@@ -11,11 +11,11 @@ import Foundation
 public extension String {
     var wordCount: Int {
         let locale = CFLocaleCopyCurrent()
-        let tokenizer = CFStringTokenizerCreate(kCFAllocatorDefault, self, CFRange(location: 0, length: CFStringGetLength(self)), kCFStringTokenizerUnitWord, locale)
+        let tokenizer = CFStringTokenizerCreate(kCFAllocatorDefault, self as CFString!, CFRange(location: 0, length: CFStringGetLength(self as CFString!)), kCFStringTokenizerUnitWord, locale)
         
         var count = 0
-        while CFStringTokenizerAdvanceToNextToken(tokenizer) != .None {
-            count++
+        while CFStringTokenizerAdvanceToNextToken(tokenizer) != CFStringTokenizerTokenType() {
+            count += 1
         }
         
         return count

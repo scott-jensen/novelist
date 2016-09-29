@@ -10,15 +10,15 @@ import Cocoa
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    private var libraryWindowController: LibraryWindowController?
+    fileprivate var libraryWindowController: LibraryWindowController?
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        libraryWindowController = storyboard.instantiateControllerWithIdentifier("LibraryWindowController") as? LibraryWindowController
+        libraryWindowController = storyboard.instantiateController(withIdentifier: "LibraryWindowController") as? LibraryWindowController
         libraryWindowController?.showWindow(nil)
     }
     
-    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if flag == false {
             libraryWindowController?.showWindow(nil)
         }

@@ -17,29 +17,29 @@ public final class DataCenter: NSObject {
     // MARK: -
     // MARK: Public Properties
     public let realm: Realm = {
-        assert(NSOperationQueue.currentQueue() == NSOperationQueue.mainQueue())
+        assert(OperationQueue.current == OperationQueue.main)
         do {
             Realm.Configuration.defaultConfiguration = Realm.Configuration(
                 schemaVersion: 5,
                 migrationBlock: { (migration: Migration, oldSchemaVersion: UInt64) in
                     if oldSchemaVersion < 1 {
-                        migration.enumerate(Chapter.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Chapter.className()) { oldObject, newObject in
                             newObject!["title"] = nil
                         }
                         
-                        migration.enumerate(Section.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Section.className()) { oldObject, newObject in
                             newObject!["title"] = nil
                         }
                     }
                     
                     if oldSchemaVersion < 2 {
-                        migration.enumerate(Paragraph.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Paragraph.className()) { oldObject, newObject in
                             newObject!["wordCount"] = 0
                         }
                     }
                     
                     if oldSchemaVersion < 3 {
-                        migration.enumerate(Section.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Section.className()) { oldObject, newObject in
                             let oldParagraphs = oldObject!["paragraphs"] as! List<MigrationObject>
                             let newTextParagraphs = newObject!["textParagraphs"] as! List<MigrationObject>
                             
@@ -57,21 +57,21 @@ public final class DataCenter: NSObject {
                             }
                         }
                         
-                        migration.enumerate(Paragraph.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Paragraph.className()) { oldObject, newObject in
                             migration.delete(newObject!)
                         }
                     }
                     
                     if oldSchemaVersion < 4 {
-                        migration.enumerate(Section.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Section.className()) { oldObject, newObject in
                             newObject!["wordCount"] = 0
                         }
                         
-                        migration.enumerate(Chapter.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Chapter.className()) { oldObject, newObject in
                             newObject!["wordCount"] = 0
                         }
                         
-                        migration.enumerate(Book.className()) { oldObject, newObject in
+                        migration.enumerateObjects(ofType: Book.className()) { oldObject, newObject in
                             newObject!["wordCount"] = 0
                         }
                     }
@@ -79,13 +79,13 @@ public final class DataCenter: NSObject {
             
             let realm = try Realm()
             
-            let unownedParagraphs = realm.objects(Paragraph).filter("owner = nil")
+            let unownedParagraphs = realm.objects(Paragraph.self).filter("owner = nil")
             if unownedParagraphs.count > 0 {
                 try realm.write {
-                    let sections = realm.objects(Section)
+                    let sections = realm.objects(Section.self)
                     for paragraph: Paragraph in unownedParagraphs {
                         for section: Section in sections {
-                            if section.textParagraphs.indexOf(paragraph) != nil || section.noteParagraphs.indexOf(paragraph) != nil {
+                            if section.textParagraphs.index(of: paragraph) != nil || section.noteParagraphs.index(of: paragraph) != nil {
                                 paragraph.owner = section
                                 section.updateWordCount()
                                 print("Added owner to paragraph")
@@ -96,13 +96,13 @@ public final class DataCenter: NSObject {
                 }
             }
             
-            let unownedSections = realm.objects(Section).filter("owner = nil")
+            let unownedSections = realm.objects(Section.self).filter("owner = nil")
             if unownedSections.count > 0 {
                 try realm.write {
-                    let chapters = realm.objects(Chapter)
+                    let chapters = realm.objects(Chapter.self)
                     for section: Section in unownedSections {
                         for chapter: Chapter in chapters {
-                            if chapter.sections.indexOf(section) != nil {
+                            if chapter.sections.index(of: section) != nil {
                                 section.owner = chapter
                                 chapter.updateWordCount()
                                 print("Added owner to section")
@@ -113,13 +113,13 @@ public final class DataCenter: NSObject {
                 }
             }
             
-            let unownedChapters = realm.objects(Chapter).filter("owner = nil")
+            let unownedChapters = realm.objects(Chapter.self).filter("owner = nil")
             if unownedChapters.count > 0 {
                 try realm.write {
-                    let books = realm.objects(Book)
+                    let books = realm.objects(Book.self)
                     for chapter: Chapter in unownedChapters {
                         for book: Book in books {
-                            if book.chapters.indexOf(chapter) != nil {
+                            if book.chapters.index(of: chapter) != nil {
                                 chapter.owner = book
                                 book.updateWordCount()
                                 print("Added owner to chapter")
@@ -138,7 +138,7 @@ public final class DataCenter: NSObject {
     
     // MARK: -
     // MARK: Lifecycle
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
 }

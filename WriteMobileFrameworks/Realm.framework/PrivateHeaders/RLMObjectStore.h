@@ -22,32 +22,16 @@
 extern "C" {
 #endif
 
-@class RLMRealm, RLMSchema, RLMObjectSchema, RLMObjectBase, RLMResults, RLMProperty;
+@class RLMRealm, RLMSchema, RLMObjectBase, RLMResults, RLMProperty;
+
+NS_ASSUME_NONNULL_BEGIN
 
 //
-// Table modifications
+// Accessor Creation
 //
-
-// updates a Realm to a given target schema/version
-// creates tables as necessary
-// optionally runs migration block if schema is out of date
-//
-// NOTE: the schema passed in will be set on the Realm and may later be mutated. sharing a targetSchema accross
-// even the same Realm with different column orderings will cause issues
-void RLMUpdateRealmToSchemaVersion(RLMRealm *realm, uint64_t version, RLMSchema *targetSchema, NSError *(^migrationBlock)());
-
-// sets a realm's schema to a copy of targetSchema
-// caches table accessors on each objectSchema
-//
-// NOTE: the schema passed in will be set on the Realm and may later be mutated. sharing a targetSchema accross
-// even the same Realm with different column orderings will cause issues
-void RLMRealmSetSchema(RLMRealm *realm, RLMSchema *targetSchema, bool verifyAndAlignColumns);
 
 // create or get cached accessors for the given schema
 void RLMRealmCreateAccessors(RLMSchema *schema);
-
-// Clear the cache of created accessor classes
-void RLMClearAccessorCache();
 
 
 //
@@ -59,9 +43,11 @@ typedef NS_OPTIONS(NSUInteger, RLMCreationOptions) {
     // If the property is a link or array property, upsert the linked objects
     // if they have a primary key, and insert them otherwise.
     RLMCreationOptionsCreateOrUpdate = 1 << 0,
-    // Allow standalone objects to be promoted to persisted objects
+    // Allow unmanaged objects to be promoted to managed objects
     // if false objects are copied during object creation
-    RLMCreationOptionsPromoteStandalone = 1 << 1,
+    RLMCreationOptionsPromoteUnmanaged = 1 << 1,
+    // Use the SetDefault instruction.
+    RLMCreationOptionsSetDefault = 1 << 2,
 };
 
 
@@ -79,27 +65,40 @@ void RLMDeleteObjectFromRealm(RLMObjectBase *object, RLMRealm *realm);
 void RLMDeleteAllObjectsFromRealm(RLMRealm *realm);
 
 // get objects of a given class
-RLMResults *RLMGetObjects(RLMRealm *realm, NSString *objectClassName, NSPredicate *predicate) NS_RETURNS_RETAINED;
+RLMResults *RLMGetObjects(RLMRealm *realm, NSString *objectClassName, NSPredicate * _Nullable predicate)
+NS_RETURNS_RETAINED;
 
 // get an object with the given primary key
-id RLMGetObject(RLMRealm *realm, NSString *objectClassName, id key) NS_RETURNS_RETAINED;
+id _Nullable RLMGetObject(RLMRealm *realm, NSString *objectClassName, id _Nullable key) NS_RETURNS_RETAINED;
 
 // create object from array or dictionary
-RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className, id value, bool createOrUpdate) NS_RETURNS_RETAINED;
+RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className, id _Nullable value, bool createOrUpdate)
+NS_RETURNS_RETAINED;
     
 
 //
 // Accessor Creation
 //
 
-// Create accessors
-RLMObjectBase *RLMCreateObjectAccessor(RLMRealm *realm,
-                                       RLMObjectSchema *objectSchema,
-                                       NSUInteger index) NS_RETURNS_RETAINED;
 
-// switch List<> properties from being backed by standalone RLMArrays to RLMArrayLinkView
+// switch List<> properties from being backed by unmanaged RLMArrays to RLMArrayLinkView
 void RLMInitializeSwiftAccessorGenerics(RLMObjectBase *object);
 
 #ifdef __cplusplus
 }
+
+namespace realm {
+    class Table;
+    template<typename T> class BasicRowExpr;
+    using RowExpr = BasicRowExpr<Table>;
+}
+class RLMClassInfo;
+
+// Create accessors
+RLMObjectBase *RLMCreateObjectAccessor(RLMRealm *realm, RLMClassInfo& info,
+                                       NSUInteger index) NS_RETURNS_RETAINED;
+RLMObjectBase *RLMCreateObjectAccessor(RLMRealm *realm, RLMClassInfo& info,
+                                       realm::RowExpr row) NS_RETURNS_RETAINED;
 #endif
+
+NS_ASSUME_NONNULL_END
